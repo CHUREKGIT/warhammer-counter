@@ -7,6 +7,24 @@ declare global {
     }
   }
 
+const saveState = (state:any) => {
+    try {
+        const serialisedState = JSON.stringify(state);
+        window.sessionStorage.setItem('app_state', serialisedState);
+    } catch (err) {
+    }
+};
+
+const loadState = () => {
+    try {
+        const serialisedState = window.sessionStorage.getItem('app_state');
+        if (!serialisedState) return initialState;
+        return JSON.parse(serialisedState);
+    } catch (err) {
+        return undefined;
+    }
+};
+
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const reducer = (state : any, action: any) => {
@@ -17,10 +35,16 @@ const reducer = (state : any, action: any) => {
     return state; 
 };
 
+const oldState = loadState();
+
 const store = createStore(
   reducer,
-  initialState,
+  oldState,
   composeEnhancers()
 );
+
+store.subscribe(() => {
+    saveState(store.getState());
+});
 
 export default store;

@@ -57,7 +57,7 @@ function MainPage () {
              renderInput={(params) => <TextField {...params} label="Army2"/>}
              onChange = {(event, value) => setPlayer2Army(value)}
             />
-            <Button variant="contained">SELECT MISSIONS</Button>
+            <Button variant="contained" href="/missions">SELECT MISSIONS</Button>
         </Grid>
         </Container>
         </div>
