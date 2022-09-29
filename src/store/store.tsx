@@ -32,6 +32,16 @@ const reducer = (state : any, action: any) => {
     if(action.type === 'ADD_PLAYER2') return { ...state, player2: action.newPlayer2}
     if(action.type === 'ADD_PLAYER1ARMY') return { ...state, player1SelectedArmy: action.player1Army}
     if(action.type === 'ADD_PLAYER2ARMY') return { ...state, player2SelectedArmy: action.player2Army}
+    if(action.type === 'SET_MISSION_PLAYER1') return { ...state, 
+        player1SelectedMissions: [...state.player1SelectedMissions.slice(0, action.pos),
+            action.selectedMission,
+            ...state.player1SelectedMissions.slice(action.pos+1)]
+    }
+    if(action.type === 'SET_MISSION_PLAYER2') return { ...state, 
+        player2SelectedMissions: [...state.player2SelectedMissions.slice(0, action.pos),
+            action.selectedMission,
+            ...state.player2SelectedMissions.slice(action.pos+1)]
+    }
     return state; 
 };
 
