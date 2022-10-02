@@ -1,4 +1,3 @@
-import * as React from 'react';
 import Container from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Autocomplete from '@mui/material/Autocomplete';
@@ -10,7 +9,7 @@ import { warpcraftOrganizer } from './utils/warpcraftOrganizer';
 import { battlefieldSupremacyOrganizer } from './utils/battlefieldOrganizer';
 import { shadowOperationOrganizer } from './utils/shadowOperationOrganizer';
 import missions from '../db/missions';
-// import { useDispatch } from 'react-redux';
+import store from '../store/store';
 
 
 function MissionsPage () {
@@ -20,6 +19,7 @@ function MissionsPage () {
     const mainMissionsWarpcraft = missions.main.warpcraft;
     const mainBattlefieldSupremacy = missions.main.battlefield;
     const mainShadowOperation = missions.main.shadowOperation;
+
     const player1 = useSelector((state: any) => state.player1);
     const player1Army = useSelector((state: any) => state.player1SelectedArmy)
     const purgeTheEnemyPlayer1 = purgeTheEnemyMissionsOrganizer(mainMissionsPurgeTheEnemy, player1Army) 
@@ -39,11 +39,26 @@ function MissionsPage () {
     const dispatch = useDispatch();
 
     const setMissionPlayer1 = (value:any, pos:number) =>{
-        dispatch({ type: 'SET_MISSION_PLAYER1', selectedMission: value, pos:pos });
+        const state = store.getState()
+        if ( state.player1SelectedMissions.length <= 2){
+            dispatch({ type: 'SET_MISSION_PLAYER1', selectedMission: value, pos:pos });
+        } else if (value === null) {
+            dispatch({type: 'DELETE_MISSION_PLAYER1', pos: pos})
+        }else {
+            alert("You can't select more Missions!")
+        }
     }
 
     const setMissionPlayer2 = (value:any, pos:number) =>{
-        dispatch({ type: 'SET_MISSION_PLAYER2', selectedMission: value, pos:pos });
+        const state = store.getState();
+        if (state.player2SelectedMissions.length <= 2){
+            dispatch({ type: 'SET_MISSION_PLAYER2', selectedMission: value, pos:pos });
+        } else if (value === null ){
+            dispatch({type: 'DELETE_MISSION_PLAYER2', pos: pos})
+        } else {
+            alert ("You can't select more Missions!")
+        }
+        
     }
 
 
@@ -169,7 +184,7 @@ function MissionsPage () {
             />
         </Grid>
         <Grid item>
-            <Button variant="contained" href="/game">SELECT MISSIONS</Button>
+            <Button variant="contained" href="/game">START GAME!</Button>
         </Grid>
     </Grid>
     

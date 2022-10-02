@@ -37,11 +37,15 @@ const reducer = (state : any, action: any) => {
             action.selectedMission,
             ...state.player1SelectedMissions.slice(action.pos+1)]
     }
+    if(action.type === 'DELETE_MISSION_PLAYER1') return { ...state, 
+        player1SelectedMissions:[...state.player1SelectedMissions.slice(0, action.pos),...state.player1SelectedMissions.slice(action.pos+1)]}
     if(action.type === 'SET_MISSION_PLAYER2') return { ...state, 
         player2SelectedMissions: [...state.player2SelectedMissions.slice(0, action.pos),
             action.selectedMission,
             ...state.player2SelectedMissions.slice(action.pos+1)]
     }
+    if(action.type === 'DELETE_MISSION_PLAYER2') return { ...state, 
+        player2SelectedMissions:[...state.player2SelectedMissions.slice(0, action.pos),...state.player2SelectedMissions.slice(action.pos+1)]}
     return state; 
 };
 
