@@ -184,7 +184,7 @@ function MissionsPage () {
             />
         </Grid>
         <Grid item>
-            <Button variant="contained" href="/game">START GAME!</Button>
+            <Button variant="contained" href={`${process.env.PUBLIC_URL}/game`}>START GAME!</Button>
         </Grid>
     </Grid>
     
