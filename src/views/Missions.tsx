@@ -40,10 +40,12 @@ function MissionsPage () {
 
     const setMissionPlayer1 = (value:any, pos:number) =>{
         const state = store.getState()
-        if ( state.player1SelectedMissions.length <= 2){
+        const realMissionsPlayer1 = state.player1SelectedMissions.filter((mission:any) => mission !== 'placeholder')
+        if ( realMissionsPlayer1.length <= 2){
             dispatch({ type: 'SET_MISSION_PLAYER1', selectedMission: value, pos:pos });
-        } else if (value === null) {
+        } else if (value == null) {
             dispatch({type: 'DELETE_MISSION_PLAYER1', pos: pos})
+            realMissionsPlayer1.splice(pos,1)
         }else {
             alert("You can't select more Missions!")
         }
@@ -51,11 +53,14 @@ function MissionsPage () {
 
     const setMissionPlayer2 = (value:any, pos:number) =>{
         const state = store.getState();
-        if (state.player2SelectedMissions.length <= 2){
+        const realMissionsPlayer2 = state.player2SelectedMissions.filter((mission:any) => mission !== 'placeholder')
+        if (realMissionsPlayer2.length <= 2){
             dispatch({ type: 'SET_MISSION_PLAYER2', selectedMission: value, pos:pos });
-        } else if (value === null ){
-            dispatch({type: 'DELETE_MISSION_PLAYER2', pos: pos})
-        } else {
+        } else if (value == null) {
+            dispatch({type: 'DELETE_MISSION_PLAYER1', pos: pos})
+            realMissionsPlayer2.splice(pos,1)
+        } 
+        else {
             alert ("You can't select more Missions!")
         }
         

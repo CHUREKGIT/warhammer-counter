@@ -6,8 +6,8 @@ const initialState = {
     player1SelectedArmy: '',
     player2: '',
     player2SelectedArmy: '',
-    player1SelectedMissions: [],
-    player2SelectedMissions: [],
+    player1SelectedMissions: ['placeholder', 'placeholder', 'placeholder', 'placeholder', 'placeholder'],
+    player2SelectedMissions: ['placeholder', 'placeholder', 'placeholder', 'placeholder', 'placeholder'],
 }
 
 export default initialState

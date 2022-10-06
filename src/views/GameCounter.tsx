@@ -74,15 +74,18 @@ function GameCounter () {
             }}>
                 <h3>{state.player1} Secondary Missions</h3>
                 {state.player1SelectedMissions.map((mission: string) => {
-                    return (<Grid item>
+                    if (mission !== 'placeholder') {
+                    return (
+                        <Grid item>
                         <Counter
                             mission = {mission}
                             playerScoreDecrese={handleDecreseScorePlayer1}
                             playerScoreIncrease={handleIncreaseScorePlayer1}
                             >
                         </Counter>
-                    </Grid>)
-                    })}
+                    </Grid>
+                    )
+                } else return ''})}
             </Grid>
             <Grid spacing={2} container direction="column" justifyContent="space-around" alignItems="center"
             sx={{
@@ -90,6 +93,7 @@ function GameCounter () {
             }}>
                 <h3>{state.player2} Secondary Missions</h3>
                 {state.player2SelectedMissions.map((mission: string) => {
+                    if (mission !== 'placeholder') {
                     return (<Grid item>
                         <Counter
                             mission = {mission}
@@ -98,7 +102,7 @@ function GameCounter () {
                             >
                         </Counter>
                     </Grid>)
-                    })}
+                } else return ''})}
             </Grid>
         </Container>
 }

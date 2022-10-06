@@ -8,7 +8,7 @@ import { useState } from 'react';
 
 function Counter (props:any) {
 
-    const [count, setCount] = useState(1);
+    const [count, setCount] = useState(0);
 
     return <div>
              <Box 

@@ -17,7 +17,7 @@ export function wtcConverter (scorePlayer1: number, scorePlayer2: number){
             else  {wtcScore = '20-0'}
     }
 
-    if (diffrence < 0) {
+    if (diffrence <= 0) {
         if (diffrence >= -5 ) {wtcScore = '10-10'}
         else if (diffrence >= -10 ) {wtcScore = '9-11'}
         else if (diffrence >= -15 ) {wtcScore = '8-12'}
@@ -30,5 +30,5 @@ export function wtcConverter (scorePlayer1: number, scorePlayer2: number){
         else if(diffrence >= -50 ) {wtcScore = '1-19'}
         else {wtcScore = '0-20'}
     }
-    return wtcScore
+    return wtcScore 
 }
