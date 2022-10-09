@@ -1,11 +1,12 @@
 import missions from "../../db/missions";
 
-export function warpcraftOrganizer (warpcraft: string[], playerArmySelected: string): string[] {
-    let warpcraftWithArmy = warpcraft
+export function warpcraftOrganizer (playerArmySelected: string): string[] {
+    let warpcraftWithArmy = []
+    warpcraftWithArmy = [...missions.main.warpcraft]
 
     switch (playerArmySelected) {
         case 'Harlequins':
-            if (!warpcraft.includes(missions.harlequins.warpcraft)){
+            if (!missions.main.warpcraft.includes(missions.harlequins.warpcraft)){
                 if (missions.harlequins.warpcraft){
                     warpcraftWithArmy.push(missions.harlequins.warpcraft)
                     return warpcraftWithArmy;
@@ -13,7 +14,7 @@ export function warpcraftOrganizer (warpcraft: string[], playerArmySelected: str
             }
             break;
         case 'Heretic Astartes: Thousand Sons':
-            if (!warpcraft.includes(missions.ts.warpcraft)){
+            if (!missions.main.warpcraft.includes(missions.ts.warpcraft)){
                 if (missions.ts.warpcraft){
                     warpcraftWithArmy.push(missions.ts.warpcraft)
                     return warpcraftWithArmy;
@@ -21,7 +22,7 @@ export function warpcraftOrganizer (warpcraft: string[], playerArmySelected: str
             }
             break;
         case 'Aeldari (Eldar)': 
-            if (!warpcraft.includes(missions.elf.warpcraft)){
+            if (!missions.main.warpcraft.includes(missions.elf.warpcraft)){
                 if (missions.elf.warpcraft){
                     warpcraftWithArmy.push(missions.elf.warpcraft)
                     return warpcraftWithArmy;

@@ -8,33 +8,27 @@ import { purgeTheEnemyMissionsOrganizer } from './utils/purgeTheEnemyMissionsOrg
 import { warpcraftOrganizer } from './utils/warpcraftOrganizer';
 import { battlefieldSupremacyOrganizer } from './utils/battlefieldOrganizer';
 import { shadowOperationOrganizer } from './utils/shadowOperationOrganizer';
-import missions from '../db/missions';
 import store from '../store/store';
 
 
 function MissionsPage () {
 
-    const mainMissionsPurgeTheEnemy = missions.main.purgeTheEnemy;
-    const mainMissionsnoMercy = missions.main.noMercy;
-    const mainMissionsWarpcraft = missions.main.warpcraft;
-    const mainBattlefieldSupremacy = missions.main.battlefield;
-    const mainShadowOperation = missions.main.shadowOperation;
-
     const player1 = useSelector((state: any) => state.player1);
     const player1Army = useSelector((state: any) => state.player1SelectedArmy)
-    const purgeTheEnemyPlayer1 = purgeTheEnemyMissionsOrganizer(mainMissionsPurgeTheEnemy, player1Army) 
-    const noMercyPlayer1 =  noMercyMissionsOrganizer(mainMissionsnoMercy, player1Army)
-    const warpcraftPlayer1 = warpcraftOrganizer(mainMissionsWarpcraft, player1Army)
-    const battlefieldSupremacyPlayer1 = battlefieldSupremacyOrganizer(mainBattlefieldSupremacy, player1Army)
-    const shadowOperationPlayer1 = shadowOperationOrganizer(mainShadowOperation, player1Army);
+    const noMercyPlayer1 =  noMercyMissionsOrganizer(player1Army)
+    const warpcraftPlayer1 = warpcraftOrganizer(player1Army)
+    const battlefieldSupremacyPlayer1 = battlefieldSupremacyOrganizer(player1Army)
+    const shadowOperationPlayer1 = shadowOperationOrganizer(player1Army);
     
     const player2 = useSelector((state: any) => state.player2);
-    const player2Army = useSelector((state: any) => state.player2SelectedArmy)
-    const purgeTheEnemyPlayer2 = purgeTheEnemyMissionsOrganizer(mainMissionsPurgeTheEnemy, player2Army) 
-    const noMercyPlayer2 =  noMercyMissionsOrganizer(mainMissionsnoMercy, player2Army)
-    const warpcraftPlayer2 = warpcraftOrganizer(mainMissionsWarpcraft, player2Army)
-    const battlefieldSupremacyPlayer2 = battlefieldSupremacyOrganizer(mainBattlefieldSupremacy, player2Army)
-    const shadowOperationPlayer2 = shadowOperationOrganizer(mainShadowOperation, player2Army);
+    const player2Army = useSelector((state: any) => state.player2SelectedArmy);
+    const noMercyPlayer2 =  noMercyMissionsOrganizer(player2Army);
+    const warpcraftPlayer2 = warpcraftOrganizer(player2Army);
+    const battlefieldSupremacyPlayer2 = battlefieldSupremacyOrganizer(player2Army);
+    const shadowOperationPlayer2 = shadowOperationOrganizer(player2Army);
+
+    const purgeTheEnemyPlayer1 = purgeTheEnemyMissionsOrganizer(player1Army) 
+    const purgeTheEnemyPlayer2 = purgeTheEnemyMissionsOrganizer(player2Army);
     
     const dispatch = useDispatch();
 

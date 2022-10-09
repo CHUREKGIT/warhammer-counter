@@ -1,11 +1,12 @@
 import missions from "../../db/missions";
 
-export function battlefieldSupremacyOrganizer (battlefieldSupremacyMissions: string[], playerArmySelected: string): string[] {
-    let battlefieldSupremacyWithArmy = battlefieldSupremacyMissions
+export function battlefieldSupremacyOrganizer (playerArmySelected: string): string[] {
+    let battlefieldSupremacyWithArmy = []
+    battlefieldSupremacyWithArmy = [...missions.main.battlefield]
 
     switch (playerArmySelected) {
         case 'Tau':
-            if (!battlefieldSupremacyMissions.includes(missions.tau.battlefield)){
+            if (!missions.main.battlefield.includes(missions.tau.battlefield)){
                 if (missions.tau.battlefield){
                     battlefieldSupremacyWithArmy.push(missions.tau.battlefield)
                     return battlefieldSupremacyWithArmy;
@@ -13,7 +14,7 @@ export function battlefieldSupremacyOrganizer (battlefieldSupremacyMissions: str
             }
             break;
         case 'Harlequins':
-            if (!battlefieldSupremacyMissions.includes(missions.harlequins.battlefield)){
+            if (!missions.main.battlefield.includes(missions.harlequins.battlefield)){
                 if (missions.harlequins.battlefield){
                     battlefieldSupremacyWithArmy.push(missions.harlequins.battlefield)
                     return battlefieldSupremacyWithArmy;
@@ -21,7 +22,7 @@ export function battlefieldSupremacyOrganizer (battlefieldSupremacyMissions: str
             }
             break;
         case 'Adepta Sororitas':
-            if (!battlefieldSupremacyMissions.includes(missions.sororitas.battlefield)){
+            if (!missions.main.battlefield.includes(missions.sororitas.battlefield)){
                 if (missions.sororitas.battlefield){
                     battlefieldSupremacyWithArmy.push(missions.sororitas.battlefield)
                     return battlefieldSupremacyWithArmy;
@@ -29,7 +30,7 @@ export function battlefieldSupremacyOrganizer (battlefieldSupremacyMissions: str
             }
             break;
         case 'Adeptus Custodes':
-            if (!battlefieldSupremacyMissions.includes(missions.custodes.battlefield)){
+            if (!missions.main.battlefield.includes(missions.custodes.battlefield)){
                 if (missions.custodes.battlefield){
                     battlefieldSupremacyWithArmy.push(missions.custodes.battlefield)
                     return battlefieldSupremacyWithArmy;
@@ -37,7 +38,7 @@ export function battlefieldSupremacyOrganizer (battlefieldSupremacyMissions: str
             }
             break;
         case 'Aeldari (Eldar)': 
-            if (!battlefieldSupremacyMissions.includes(missions.elf.battlefield)){
+            if (!missions.main.battlefield.includes(missions.elf.battlefield)){
                 if (missions.elf.battlefield){
                     battlefieldSupremacyWithArmy.push(missions.elf.battlefield)
                     return battlefieldSupremacyWithArmy;
@@ -45,7 +46,7 @@ export function battlefieldSupremacyOrganizer (battlefieldSupremacyMissions: str
             }
             break;
         case 'Astra Militarum (Imperial Guard)': 
-            if (!battlefieldSupremacyMissions.includes(missions.militarum.battlefield)){
+            if (!missions.main.battlefield.includes(missions.militarum.battlefield)){
                 if (missions.militarum.battlefield){
                     battlefieldSupremacyWithArmy.push(missions.militarum.battlefield)
                     return battlefieldSupremacyWithArmy;
@@ -53,7 +54,7 @@ export function battlefieldSupremacyOrganizer (battlefieldSupremacyMissions: str
             }
             break;
         case 'Chaos Daemons': 
-            if (!battlefieldSupremacyMissions.includes(missions.deamons.battlefield)){
+            if (!missions.main.battlefield.includes(missions.deamons.battlefield)){
                 if (missions.deamons.battlefield){
                     battlefieldSupremacyWithArmy.push(missions.deamons.battlefield)
                     return battlefieldSupremacyWithArmy;
@@ -61,7 +62,7 @@ export function battlefieldSupremacyOrganizer (battlefieldSupremacyMissions: str
             }
             break;
         case 'Chaos Knights': 
-            if (!battlefieldSupremacyMissions.includes(missions.ck.battlefield)){
+            if (!missions.main.battlefield.includes(missions.ck.battlefield)){
                 if (missions.ck.battlefield){
                     battlefieldSupremacyWithArmy.push(missions.ck.battlefield)
                     return battlefieldSupremacyWithArmy;
@@ -69,7 +70,7 @@ export function battlefieldSupremacyOrganizer (battlefieldSupremacyMissions: str
             }
             break;
         case 'Drukhari (Dark Eldar)': 
-            if (!battlefieldSupremacyMissions.includes(missions.de.battlefield)){
+            if (!missions.main.battlefield.includes(missions.de.battlefield)){
                 if (missions.de.battlefield){
                     battlefieldSupremacyWithArmy.push(missions.de.battlefield)
                     return battlefieldSupremacyWithArmy;
@@ -77,7 +78,7 @@ export function battlefieldSupremacyOrganizer (battlefieldSupremacyMissions: str
             }
             break;
         case 'Death Guard': 
-            if (!battlefieldSupremacyMissions.includes(missions.dg.battlefield)){
+            if (!missions.main.battlefield.includes(missions.dg.battlefield)){
                 if (missions.dg.battlefield){
                     battlefieldSupremacyWithArmy.push(missions.dg.battlefield)
                     return battlefieldSupremacyWithArmy;
@@ -85,7 +86,7 @@ export function battlefieldSupremacyOrganizer (battlefieldSupremacyMissions: str
             }
             break;
         case 'Imperial Knights':
-            if (!battlefieldSupremacyMissions.includes(missions.ik.battlefield)){
+            if (!missions.main.battlefield.includes(missions.ik.battlefield)){
                 if (missions.ik.battlefield){
                     battlefieldSupremacyWithArmy.push(missions.ik.battlefield)
                     return battlefieldSupremacyWithArmy;
@@ -93,7 +94,7 @@ export function battlefieldSupremacyOrganizer (battlefieldSupremacyMissions: str
             }
             break;
         case 'Necrons':
-            if (!battlefieldSupremacyMissions.includes(missions.necron.battlefield)){
+            if (!missions.main.battlefield.includes(missions.necron.battlefield)){
                 if (missions.necron.battlefield){
                     battlefieldSupremacyWithArmy.push(missions.necron.battlefield)
                     return battlefieldSupremacyWithArmy;
@@ -101,7 +102,7 @@ export function battlefieldSupremacyOrganizer (battlefieldSupremacyMissions: str
             }
             break;
         case 'Orks': 
-            if (!battlefieldSupremacyMissions.includes(missions.ork.battlefield)){
+            if (!missions.main.battlefield.includes(missions.ork.battlefield)){
                 if (missions.ork.battlefield){
                     battlefieldSupremacyWithArmy.push(missions.ork.battlefield)
                     return battlefieldSupremacyWithArmy;
