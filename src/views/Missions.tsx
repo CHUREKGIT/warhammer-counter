@@ -62,132 +62,125 @@ function MissionsPage () {
 
 
     return <Container maxWidth="xl">
-    <Grid spacing={2} container direction="column" justifyContent="space-around" alignItems="center">
-        <Grid item>
-        <h1>Choose Your Mission!</h1>
-        </Grid>
-        <Grid item >
-            <Autocomplete
-            disablePortal
-            id="combo-box-demo"
-            options={purgeTheEnemyPlayer1}
-            sx={{ width: 300 }}
-            renderInput={(params) => <TextField {...params} label={`${player1}'s Purge The Enemy`}
-            />}
-            onChange = {(event, value) => setMissionPlayer1(value, 0)}
-            />
-        </Grid>
-        <Grid item>
-            <Autocomplete
-                disablePortal
-                id="combo-box-demo"
-                options={noMercyPlayer1}
-                sx={{ width: 300 }}
-                renderInput={(params) => <TextField {...params} label={`${player1}'s No Mercy no Respite`}
-                />}
-                onChange = {(event, value) => setMissionPlayer1(value, 1)}
-            />
-        </Grid>
-        <Grid item>
-            <Autocomplete
-            disablePortal
-            id="combo-box-demo"
-            options={warpcraftPlayer1}
-            sx={{ width: 300 }}
-            renderInput={(params) => <TextField {...params} label={`${player1}'s Warpcraft`}
-            />}
-            onChange = {(event, value) => setMissionPlayer1(value, 2)}
-            />
-        </Grid>
-        
-        <Grid item> 
-            <Autocomplete
-            disablePortal
-            id="combo-box-demo"
-            options={battlefieldSupremacyPlayer1}
-            sx={{ width: 300 }}
-            renderInput={(params) => <TextField {...params} label={`${player1}'s Battlefield Supremancy`}
-            />}
-            onChange = {(event, value) => setMissionPlayer1(value, 3)}
-            />
-        </Grid>
-
-        <Grid item>
-            <Autocomplete
-            disablePortal
-            id="combo-box-demo"
-            options={shadowOperationPlayer1}
-            sx={{ width: 300 }}
-            renderInput={(params) => <TextField {...params} label={`${player1}'s Shadow Operaration`}
-            />}
-            onChange = {(event, value) => setMissionPlayer1(value, 4)}
-            />
-        </Grid>
-
-        <Grid item>
-            <Autocomplete
-            disablePortal
-            id="combo-box-demo"
-            options={purgeTheEnemyPlayer2}
-            sx={{ width: 300 }}
-            renderInput={(params) => <TextField {...params} label={`${player2}'s Purge The Enemy`}
-            />}
-            onChange = {(event, value) => setMissionPlayer2(value, 0)}
-            />
-        </Grid>
-        
-        <Grid item>
-            <Autocomplete
-                disablePortal
-                id="combo-box-demo"
-                options={noMercyPlayer2}
-                sx={{ width: 300 }}
-                renderInput={(params) => <TextField {...params} label={`${player2}'s No Mercy No Respite`}
-                />}
-                onChange = {(event, value) => setMissionPlayer2(value, 1)}
-            />
-        </Grid>
-        
-       <Grid item>
-            <Autocomplete
-            disablePortal
-            id="combo-box-demo"
-            options={warpcraftPlayer2}
-            sx={{ width: 300 }}
-            renderInput={(params) => <TextField {...params} label={`${player2}'s Warpcraft`}
-            />}
-            onChange = {(event, value) => setMissionPlayer2(value, 2)}
-            />
-        </Grid>
-
-        <Grid item>
-            <Autocomplete
-            disablePortal
-            id="combo-box-demo"
-            options={battlefieldSupremacyPlayer2}
-            sx={{ width: 300 }}
-            renderInput={(params) => <TextField {...params} label={`${player2}'s Battlefield Supremancy`}
-            />}
-            onChange = {(event, value) => setMissionPlayer2(value, 3)}
-            />
-        </Grid>
-        <Grid item> 
-            <Autocomplete
-            disablePortal
-            id="combo-box-demo"
-            options={shadowOperationPlayer2}
-            sx={{ width: 300 }}
-            renderInput={(params) => <TextField {...params} label={`${player2}'s Shadow Opearation`}
-            />}
-            onChange = {(event, value) => setMissionPlayer2(value, 4)}
-            />
-        </Grid>
-        <Grid item>
-            <Button variant="contained" href={`${process.env.PUBLIC_URL}/game`}>START GAME!</Button>
-        </Grid>
-    </Grid>
-    
-    </Container>
+                <Grid spacing={2} container direction="column" justifyContent="space-around" alignItems="center">
+                    <Grid item>
+                        <h1>Choose Your Mission!</h1>
+                    </Grid>
+                    <Grid item >
+                        <Autocomplete
+                            disablePortal
+                            id="combo-box-demo"
+                            options={purgeTheEnemyPlayer1}
+                            sx={{ width: 300 }}
+                            renderInput={(params) => <TextField {...params} label={`${player1}'s Purge The Enemy`}
+                            />}
+                            onChange = {(event, value) => setMissionPlayer1(value, 0)}
+                        />
+                    </Grid>
+                    <Grid item>
+                        <Autocomplete
+                            disablePortal
+                            id="combo-box-demo"
+                            options={noMercyPlayer1}
+                            sx={{ width: 300 }}
+                            renderInput={(params) => <TextField {...params} label={`${player1}'s No Mercy no Respite`}
+                            />}
+                            onChange = {(event, value) => setMissionPlayer1(value, 1)}
+                        />
+                    </Grid>
+                    <Grid item>
+                        <Autocomplete
+                            disablePortal
+                            id="combo-box-demo"
+                            options={warpcraftPlayer1}
+                            sx={{ width: 300 }}
+                            renderInput={(params) => <TextField {...params} label={`${player1}'s Warpcraft`}
+                            />}
+                            onChange = {(event, value) => setMissionPlayer1(value, 2)}
+                        />
+                    </Grid>  
+                    <Grid item> 
+                        <Autocomplete
+                            disablePortal
+                            id="combo-box-demo"
+                            options={battlefieldSupremacyPlayer1}
+                            sx={{ width: 300 }}
+                            renderInput={(params) => <TextField {...params} label={`${player1}'s Battlefield Supremancy`}
+                            />}
+                            onChange = {(event, value) => setMissionPlayer1(value, 3)}
+                        />
+                    </Grid>
+                    <Grid item>
+                        <Autocomplete
+                            disablePortal
+                            id="combo-box-demo"
+                            options={shadowOperationPlayer1}
+                            sx={{ width: 300 }}
+                            renderInput={(params) => <TextField {...params} label={`${player1}'s Shadow Operaration`}
+                            />}
+                            onChange = {(event, value) => setMissionPlayer1(value, 4)}
+                            />
+                    </Grid>
+                    <Grid item>
+                        <Autocomplete
+                            disablePortal
+                            id="combo-box-demo"
+                            options={purgeTheEnemyPlayer2}
+                            sx={{ width: 300 }}
+                            renderInput={(params) => <TextField {...params} label={`${player2}'s Purge The Enemy`}
+                            />}
+                            onChange = {(event, value) => setMissionPlayer2(value, 0)}
+                        />
+                    </Grid>
+                    <Grid item>
+                        <Autocomplete
+                            disablePortal
+                            id="combo-box-demo"
+                            options={noMercyPlayer2}
+                            sx={{ width: 300 }}
+                            renderInput={(params) => <TextField {...params} label={`${player2}'s No Mercy No Respite`}
+                            />}
+                            onChange = {(event, value) => setMissionPlayer2(value, 1)}
+                        />
+                    </Grid>
+                    <Grid item>
+                        <Autocomplete
+                            disablePortal
+                            id="combo-box-demo"
+                            options={warpcraftPlayer2}
+                            sx={{ width: 300 }}
+                            renderInput={(params) => <TextField {...params} label={`${player2}'s Warpcraft`}
+                            />}
+                            onChange = {(event, value) => setMissionPlayer2(value, 2)}
+                        />
+                    </Grid>
+                    <Grid item>
+                        <Autocomplete
+                            disablePortal
+                            id="combo-box-demo"
+                            options={battlefieldSupremacyPlayer2}
+                            sx={{ width: 300 }}
+                            renderInput={(params) => <TextField {...params} label={`${player2}'s Battlefield Supremancy`}
+                            />}
+                            onChange = {(event, value) => setMissionPlayer2(value, 3)}
+                        />
+                    </Grid>
+                    <Grid item> 
+                        <Autocomplete
+                            disablePortal
+                            id="combo-box-demo"
+                            options={shadowOperationPlayer2}
+                            sx={{ width: 300 }}
+                            renderInput={(params) => <TextField {...params} label={`${player2}'s Shadow Opearation`}
+                            />}
+                            onChange = {(event, value) => setMissionPlayer2(value, 4)}
+                        />
+                    </Grid>
+                    <Grid item>
+                        <Button variant="contained" href={`${process.env.PUBLIC_URL}/game`}>START GAME!</Button>
+                    </Grid>
+                </Grid>
+            </Container>
 
 }
 

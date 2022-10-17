@@ -6,13 +6,12 @@ import { Routes, Route } from 'react-router-dom';
 
 
 function App() {
-  return <div>
-  <Routes>
-          <Route path="/" element={<MainPage />} />
-          <Route path="/missions" element={<MissionsPage />} />
-          <Route path="/game" element={<GameCounter />} />
-  </Routes>
-  </div>
+  return <Routes>
+            <Route path="/" element={<MainPage />} />
+            <Route path="/missions" element={<MissionsPage />} />
+            <Route path="/game" element={<GameCounter />} />
+        </Routes>
+
 }
 
 

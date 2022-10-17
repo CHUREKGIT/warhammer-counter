@@ -33,34 +33,33 @@ function MainPage () {
         dispatch({ type: 'ADD_PLAYER2ARMY', player2Army: value });
     }
 
-    return <div><Container maxWidth="xl">
-        <Grid container direction="column" justifyContent="center" alignItems="center">
-            <h1>{title}</h1>
-            <TextField id="standard-basic" label="Player 1" variant="standard"
-             onChange={setPlayer1} />
-            <h2>Army Player 1:</h2><Autocomplete
-             disablePortal
-             id="combo-box-demo"
-             options={armies}
-             sx={{ width: 300 }}
-             renderInput={(params) => <TextField {...params} label="Army1" 
-             />}
-             onChange = {(event, value) => setPlayer1Army(value)}
-            />
-            <TextField id="standard-basic" label="Player 2" variant="standard"
-             onChange={setPlayer2} />
-            <h2>Army Player 2:</h2><Autocomplete
-             disablePortal
-             id="combo-box-demo"
-             options={armies}
-             sx={{ width: 300 }}
-             renderInput={(params) => <TextField {...params} label="Army2"/>}
-             onChange = {(event, value) => setPlayer2Army(value)}
-            />
-            <Button variant="contained" href={`${process.env.PUBLIC_URL}/missions`}>SELECT MISSIONS</Button>
-        </Grid>
-        </Container>
-        </div>
+    return <Container maxWidth="xl">
+                <Grid container direction="column" justifyContent="center" alignItems="center">
+                    <h1>{title}</h1>
+                        <TextField id="standard-basic" label="Player 1" variant="standard" onChange={setPlayer1} />
+                        <h2>Army Player 1:</h2>
+                        <Autocomplete
+                            disablePortal
+                            id="combo-box-demo"
+                            options={armies}
+                            sx={{ width: 300 }}
+                            renderInput={(params) => <TextField {...params} label="Army1" 
+                            />}
+                            onChange = {(event, value) => setPlayer1Army(value)}
+                        />
+                        <TextField id="standard-basic" label="Player 2" variant="standard" onChange={setPlayer2} />
+                        <h2>Army Player 2:</h2>
+                        <Autocomplete
+                            disablePortal
+                            id="combo-box-demo"
+                            options={armies}
+                            sx={{ width: 300 }}
+                            renderInput={(params) => <TextField {...params} label="Army2"/>}
+                            onChange = {(event, value) => setPlayer2Army(value)}
+                        />
+                        <Button variant="contained" href={`${process.env.PUBLIC_URL}/missions`}>SELECT MISSIONS</Button>
+                </Grid>
+            </Container>
 
 }
 
