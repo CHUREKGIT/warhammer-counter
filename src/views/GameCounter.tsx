@@ -73,8 +73,7 @@ function GameCounter () {
                 marginTop: 3,
             }}>
                 <h3>{state.player1} Secondary Missions</h3>
-                {state.player1SelectedMissions.map((mission: string) => {
-                    if (mission !== 'placeholder') {
+                {state.player1SelectedMissions.filter((word: string) => word !== 'placeholder').map((mission: string) => {
                     return (
                         <Grid item>
                         <Counter
@@ -85,7 +84,7 @@ function GameCounter () {
                         </Counter>
                     </Grid>
                     )
-                } else return ''})}
+                })}
             </Grid>
             <Grid spacing={2} container direction="column" justifyContent="space-around" alignItems="center"
             sx={{
