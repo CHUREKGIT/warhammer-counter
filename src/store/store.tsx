@@ -28,30 +28,42 @@ const loadState = () => {
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const reducer = (state : any, action: any) => {
-    if(action.type === 'ADD_PLAYER1') return { ...state, player1: action.newPlayer1}
-    if(action.type === 'ADD_PLAYER2') return { ...state, player2: action.newPlayer2}
-    if(action.type === 'ADD_PLAYER1ARMY') return { ...state, player1SelectedArmy: action.player1Army}
-    if(action.type === 'ADD_PLAYER2ARMY') return { ...state, player2SelectedArmy: action.player2Army}
-    if(action.type === 'SET_MISSION_PLAYER1') return { ...state, 
-        player1SelectedMissions: [...state.player1SelectedMissions.slice(0, action.pos),
-            action.selectedMission,
-            ...state.player1SelectedMissions.slice(action.pos+1)]
-    }
-    if(action.type === 'DELETE_MISSION_PLAYER1') return { ...state, 
-        player1SelectedMissions:[...state.player1SelectedMissions.slice(0, action.pos),
-            'placeholder',
-            ...state.player1SelectedMissions.slice(action.pos+1)]}
-    if(action.type === 'SET_MISSION_PLAYER2') return { ...state, 
-        player2SelectedMissions: [...state.player2SelectedMissions.slice(0, action.pos),
-            action.selectedMission,
-            ...state.player2SelectedMissions.slice(action.pos+1)]
-    }
-    if(action.type === 'DELETE_MISSION_PLAYER2') return { ...state, 
-        player2SelectedMissions:[...state.player2SelectedMissions.slice(0, action.pos),
-            'placeholder',
-            ...state.player2SelectedMissions.slice(action.pos+1)]}
-    return state; 
-};
+    switch (action.type) {
+        case 'ADD_PLAYER1':
+            return { ...state, player1: action.newPlayer1}
+        case 'ADD_PLAYER2':
+            return { ...state, player2: action.newPlayer2}
+        case 'ADD_PLAYER1ARMY': 
+            return { ...state, player1SelectedArmy: action.player1Army}
+        case 'ADD_PLAYER2ARMY':
+            return { ...state, player2SelectedArmy: action.player2Army}
+        case 'SET_MISSION_PLAYER1': 
+            return { ...state, 
+                player1SelectedMissions: [...state.player1SelectedMissions.slice(0, action.pos),
+                    action.selectedMission,
+                    ...state.player1SelectedMissions.slice(action.pos+1)]
+                }
+        case 'DELETE_MISSION_PLAYER1': 
+            return { ...state, 
+                player1SelectedMissions: [...state.player1SelectedMissions.slice(0, action.pos),
+                'placeholder',
+                ...state.player1SelectedMissions.slice(action.pos+1)]
+                }
+        case 'SET_MISSION_PLAYER2': 
+            return { ...state, 
+                player2SelectedMissions: [...state.player2SelectedMissions.slice(0, action.pos),
+                action.selectedMission,
+                ...state.player2SelectedMissions.slice(action.pos+1)]
+                }
+        case 'DELETE_MISSION_PLAYER2':
+            return { ...state, 
+                player2SelectedMissions:[...state.player2SelectedMissions.slice(0, action.pos),
+                    'placeholder',
+                    ...state.player2SelectedMissions.slice(action.pos+1)]
+                }
+            }
+        return state;
+        };
 
 const oldState = loadState();
 
