@@ -13,15 +13,22 @@ import store from '../store/store';
 
 function MissionsPage () {
 
-    const player1 = useSelector((state: any) => state.player1);
-    const player1Army = useSelector((state: any) => state.player1SelectedArmy)
+    interface State {
+        player1: string;
+        player1SelectedArmy: string;
+        player2: string;
+        player2SelectedArmy: string;
+    }
+
+    const player1 = useSelector((state: State) => state.player1);
+    const player1Army = useSelector((state: State) => state.player1SelectedArmy)
     const noMercyPlayer1 =  noMercyMissionsOrganizer(player1Army)
     const warpcraftPlayer1 = warpcraftOrganizer(player1Army)
     const battlefieldSupremacyPlayer1 = battlefieldSupremacyOrganizer(player1Army)
     const shadowOperationPlayer1 = shadowOperationOrganizer(player1Army);
     
-    const player2 = useSelector((state: any) => state.player2);
-    const player2Army = useSelector((state: any) => state.player2SelectedArmy);
+    const player2 = useSelector((state: State) => state.player2);
+    const player2Army = useSelector((state: State) => state.player2SelectedArmy);
     const noMercyPlayer2 =  noMercyMissionsOrganizer(player2Army);
     const warpcraftPlayer2 = warpcraftOrganizer(player2Army);
     const battlefieldSupremacyPlayer2 = battlefieldSupremacyOrganizer(player2Army);
@@ -32,9 +39,9 @@ function MissionsPage () {
     
     const dispatch = useDispatch();
 
-    const setMissionPlayer1 = (value:any, pos:number) =>{
+    const setMissionPlayer1 = (value:string|null, pos:number) =>{
         const state = store.getState()
-        const realMissionsPlayer1 = state.player1SelectedMissions.filter((mission:any) => mission !== 'placeholder')
+        const realMissionsPlayer1 = state.player1SelectedMissions.filter((mission:string) => mission !== 'placeholder')
         if ( realMissionsPlayer1.length <= 2){
             dispatch({ type: 'SET_MISSION_PLAYER1', selectedMission: value, pos:pos });
         } else if (value == null) {
@@ -45,9 +52,9 @@ function MissionsPage () {
         }
     }
 
-    const setMissionPlayer2 = (value:any, pos:number) =>{
+    const setMissionPlayer2 = (value:string|null, pos:number) =>{
         const state = store.getState();
-        const realMissionsPlayer2 = state.player2SelectedMissions.filter((mission:any) => mission !== 'placeholder')
+        const realMissionsPlayer2 = state.player2SelectedMissions.filter((mission:string) => mission !== 'placeholder')
         if (realMissionsPlayer2.length <= 2){
             dispatch({ type: 'SET_MISSION_PLAYER2', selectedMission: value, pos:pos });
         } else if (value == null) {
