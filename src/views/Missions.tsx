@@ -8,17 +8,11 @@ import { purgeTheEnemyMissionsOrganizer } from './utils/purgeTheEnemyMissionsOrg
 import { warpcraftOrganizer } from './utils/warpcraftOrganizer';
 import { battlefieldSupremacyOrganizer } from './utils/battlefieldOrganizer';
 import { shadowOperationOrganizer } from './utils/shadowOperationOrganizer';
+import { State } from './state'
 import store from '../store/store';
 
 
 function MissionsPage () {
-
-    interface State {
-        player1: string;
-        player1SelectedArmy: string;
-        player2: string;
-        player2SelectedArmy: string;
-    }
 
     const player1 = useSelector((state: State) => state.player1);
     const player1Army = useSelector((state: State) => state.player1SelectedArmy)

@@ -5,11 +5,12 @@ import Autocomplete from '@mui/material/Autocomplete';
 import { TextField, Button } from '@mui/material';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
+import { State } from './state';
 
 
 function MainPage () {
 
-    const armies = useSelector((state: any) => state.armies);
+    const armies = useSelector((state: State) => state.armies);
 
     const title = "Warhammer 40k Counter";
 
@@ -25,11 +26,11 @@ function MainPage () {
         dispatch({ type: 'ADD_PLAYER2', newPlayer2: e.target.value });
     }
 
-    const setPlayer1Army = (value:any) =>{
+    const setPlayer1Army = (value:string|null) =>{
         dispatch({ type: 'ADD_PLAYER1ARMY', player1Army: value });
     }
 
-    const setPlayer2Army = (value:any) =>{
+    const setPlayer2Army = (value:string|null) =>{
         dispatch({ type: 'ADD_PLAYER2ARMY', player2Army: value });
     }
 
