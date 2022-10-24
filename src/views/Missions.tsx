@@ -8,7 +8,7 @@ import { purgeTheEnemyMissionsOrganizer } from './utils/purgeTheEnemyMissionsOrg
 import { warpcraftOrganizer } from './utils/warpcraftOrganizer';
 import { battlefieldSupremacyOrganizer } from './utils/battlefieldOrganizer';
 import { shadowOperationOrganizer } from './utils/shadowOperationOrganizer';
-import { State } from './state'
+import { State } from './state';
 import store from '../store/store';
 
 

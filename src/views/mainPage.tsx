@@ -37,22 +37,22 @@ function MainPage () {
     return <Container maxWidth="xl">
                 <Grid container direction="column" justifyContent="center" alignItems="center">
                     <h1>{title}</h1>
-                        <TextField id="standard-basic" label="Player 1" variant="standard" onChange={setPlayer1} />
+                        <TextField id="player-1" label="Player 1" variant="standard" onChange={setPlayer1} />
                         <h2>Army Player 1:</h2>
                         <Autocomplete
                             disablePortal
-                            id="combo-box-demo"
+                            id="army-player-1"
                             options={armies}
                             sx={{ width: 300 }}
                             renderInput={(params) => <TextField {...params} label="Army1" 
                             />}
                             onChange = {(event, value) => setPlayer1Army(value)}
                         />
-                        <TextField id="standard-basic" label="Player 2" variant="standard" onChange={setPlayer2} />
+                        <TextField id="player-2" label="Player 2" variant="standard" onChange={setPlayer2} />
                         <h2>Army Player 2:</h2>
                         <Autocomplete
                             disablePortal
-                            id="combo-box-demo"
+                            id="army-player-2"
                             options={armies}
                             sx={{ width: 300 }}
                             renderInput={(params) => <TextField {...params} label="Army2"/>}
