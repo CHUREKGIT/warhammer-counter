@@ -70,7 +70,8 @@ function MissionsPage () {
                     <Grid item >
                         <Autocomplete
                             disablePortal
-                            id="combo-box-demo"
+                            id="player1-purge-the-enemy"
+                            data-testid='autocomplete-purge'
                             options={purgeTheEnemyPlayer1}
                             sx={{ width: 300 }}
                             renderInput={(params) => <TextField {...params} label={`${player1}'s Purge The Enemy`}
@@ -81,7 +82,8 @@ function MissionsPage () {
                     <Grid item>
                         <Autocomplete
                             disablePortal
-                            id="combo-box-demo"
+                            id="player1-nomercy-norespite"
+                            data-testid='autocomplete-nomercy'
                             options={noMercyPlayer1}
                             sx={{ width: 300 }}
                             renderInput={(params) => <TextField {...params} label={`${player1}'s No Mercy no Respite`}
@@ -92,7 +94,7 @@ function MissionsPage () {
                     <Grid item>
                         <Autocomplete
                             disablePortal
-                            id="combo-box-demo"
+                            id="player1-warpcraft"
                             options={warpcraftPlayer1}
                             sx={{ width: 300 }}
                             renderInput={(params) => <TextField {...params} label={`${player1}'s Warpcraft`}
@@ -103,7 +105,7 @@ function MissionsPage () {
                     <Grid item> 
                         <Autocomplete
                             disablePortal
-                            id="combo-box-demo"
+                            id="player1-battlefield-supremancy"
                             options={battlefieldSupremacyPlayer1}
                             sx={{ width: 300 }}
                             renderInput={(params) => <TextField {...params} label={`${player1}'s Battlefield Supremancy`}
@@ -114,7 +116,7 @@ function MissionsPage () {
                     <Grid item>
                         <Autocomplete
                             disablePortal
-                            id="combo-box-demo"
+                            id="player1-shadow-operation"
                             options={shadowOperationPlayer1}
                             sx={{ width: 300 }}
                             renderInput={(params) => <TextField {...params} label={`${player1}'s Shadow Operaration`}
@@ -125,7 +127,7 @@ function MissionsPage () {
                     <Grid item>
                         <Autocomplete
                             disablePortal
-                            id="combo-box-demo"
+                            id="player2-purge-the-enemy"
                             options={purgeTheEnemyPlayer2}
                             sx={{ width: 300 }}
                             renderInput={(params) => <TextField {...params} label={`${player2}'s Purge The Enemy`}
@@ -136,7 +138,7 @@ function MissionsPage () {
                     <Grid item>
                         <Autocomplete
                             disablePortal
-                            id="combo-box-demo"
+                            id="player2-nomercy-norespite"
                             options={noMercyPlayer2}
                             sx={{ width: 300 }}
                             renderInput={(params) => <TextField {...params} label={`${player2}'s No Mercy No Respite`}
@@ -147,7 +149,7 @@ function MissionsPage () {
                     <Grid item>
                         <Autocomplete
                             disablePortal
-                            id="combo-box-demo"
+                            id="player2-warpcraft"
                             options={warpcraftPlayer2}
                             sx={{ width: 300 }}
                             renderInput={(params) => <TextField {...params} label={`${player2}'s Warpcraft`}
@@ -158,7 +160,7 @@ function MissionsPage () {
                     <Grid item>
                         <Autocomplete
                             disablePortal
-                            id="combo-box-demo"
+                            id="player2-battlefield-supremancy"
                             options={battlefieldSupremacyPlayer2}
                             sx={{ width: 300 }}
                             renderInput={(params) => <TextField {...params} label={`${player2}'s Battlefield Supremancy`}
@@ -169,7 +171,7 @@ function MissionsPage () {
                     <Grid item> 
                         <Autocomplete
                             disablePortal
-                            id="combo-box-demo"
+                            id="player2-shadow-operation"
                             options={shadowOperationPlayer2}
                             sx={{ width: 300 }}
                             renderInput={(params) => <TextField {...params} label={`${player2}'s Shadow Opearation`}
