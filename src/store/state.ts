@@ -4,4 +4,5 @@ export interface State {
     player2: string;
     player2SelectedArmy: string;
     armies: string [];
+    [key: string]: string | string [];
 }

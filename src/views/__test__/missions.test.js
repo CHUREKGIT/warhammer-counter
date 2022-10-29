@@ -1,10 +1,9 @@
 import MissionsPage from "../Missions";
 import configureStore from 'redux-mock-store';
-import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import {within} from '@testing-library/dom'
 import {Provider} from 'react-redux';
 import userEvent from "@testing-library/user-event";
-//import { purgeTheEnemyMissionsOrganizer } from './utils/purgeTheEnemyMissionsOrganizer';
 
 describe ("Testing Missions page", () => {
     const mockStore = configureStore();

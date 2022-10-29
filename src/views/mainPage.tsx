@@ -3,14 +3,11 @@ import Container from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Autocomplete from '@mui/material/Autocomplete';
 import { TextField, Button } from '@mui/material';
-import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { State } from './state';
+import { useArmies } from '../store/selectors';
 
 
 function MainPage () {
-
-    const armies = useSelector((state: State) => state.armies);
 
     const title = "Warhammer 40k Counter";
 
@@ -42,7 +39,7 @@ function MainPage () {
                         <Autocomplete
                             disablePortal
                             id="army-player-1"
-                            options={armies}
+                            options={useArmies()}
                             sx={{ width: 300 }}
                             renderInput={(params) => <TextField {...params} label="Army1" 
                             />}
@@ -53,7 +50,7 @@ function MainPage () {
                         <Autocomplete
                             disablePortal
                             id="army-player-2"
-                            options={armies}
+                            options={useArmies()}
                             sx={{ width: 300 }}
                             renderInput={(params) => <TextField {...params} label="Army2"/>}
                             onChange = {(event, value) => setPlayer2Army(value)}

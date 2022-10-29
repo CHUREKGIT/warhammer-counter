@@ -1,6 +1,6 @@
 import missions from "../../db/missions";
 
-export function noMercyMissionsOrganizer (playerArmySelected: string): string[] {
+export function noMercyMissionsOrganizer (playerArmySelected: string|string[]): string[] {
     let noMercyWithArmy = []
     noMercyWithArmy = [...missions.main.noMercy]
 

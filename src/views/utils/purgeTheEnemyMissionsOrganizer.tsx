@@ -1,6 +1,6 @@
 import missions from "../../db/missions";
 
-export function purgeTheEnemyMissionsOrganizer (playerArmySelected: string): string[] {
+export function purgeTheEnemyMissionsOrganizer (playerArmySelected: string|string[]): string[] {
 
     let purgeTheEnemyWithArmy = []
     purgeTheEnemyWithArmy = [...missions.main.purgeTheEnemy]

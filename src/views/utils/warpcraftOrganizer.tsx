@@ -1,6 +1,6 @@
 import missions from "../../db/missions";
 
-export function warpcraftOrganizer (playerArmySelected: string): string[] {
+export function warpcraftOrganizer (playerArmySelected: string|string[]): string[] {
     let warpcraftWithArmy = []
     warpcraftWithArmy = [...missions.main.warpcraft]
 

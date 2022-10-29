@@ -1,6 +1,6 @@
 import missions from "../../db/missions";
 
-export function shadowOperationOrganizer (playerArmySelected: string): string[] {
+export function shadowOperationOrganizer (playerArmySelected: string|string[]): string[] {
     let shadowOperationWithArmy = []
     shadowOperationWithArmy = [...missions.main.shadowOperation]
 

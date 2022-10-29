@@ -24,7 +24,7 @@ function Counter (props:any) {
                     },
                         }}/>
                     <div>
-                    <Badge color="secondary" badgeContent={count}>
+                    <Badge color="secondary" badgeContent={count} id={`badge-counter-${props.player}-${props.mission ? props.mission :'Primary Score'}`}>
                         {props.player ? props.player : ''} {props.mission ? props.mission :'Primary Score'}
                     </Badge>
                         <ButtonGroup
@@ -32,6 +32,8 @@ function Counter (props:any) {
                                 marginLeft: 2
                             }}>
                             <Button
+                                id={`button-reduce-${props.player}-${props.mission ? props.mission :'Primary Score'}`}
+                                data-testid={`button-reduce-${props.player}-${props.mission ? props.mission :'Primary Score'}`}
                                 aria-label="reduce"
                                 onClick={() => {
                                 setCount(Math.max(count - 1, 0));
@@ -40,6 +42,8 @@ function Counter (props:any) {
                                 <RemoveIcon fontSize="small" />
                             </Button>
                             <Button
+                                id={`button-increase-${props.player}-${props.mission ? props.mission :'Primary Score'}`}
+                                data-testid={`button-increase-${props.player}-${props.mission ? props.mission :'Primary Score'}`}
                                 aria-label="increase"
                                 onClick={() => {
                                 setCount(count + 1);

@@ -1,15 +1,13 @@
 import Container from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Card from '@mui/material/Card';
-import store from '../store/store';
 import Counter from '../components/Counter';
 import { useState } from 'react';
 import { wtcConverter } from './utils/wtcConverter';
+import { usePlayer, usePlayerFilteredMissions} from '../store/selectors';
+
 
 function GameCounter () {
-
-    const state = store.getState()
-
     const [scorePlayer1, setScorePlayer1] = useState(10)
     const [scorePlayer2, setScorePlayer2] = useState(10)
 
@@ -32,12 +30,12 @@ function GameCounter () {
     return <Container maxWidth="xl">
             <Grid spacing={1} container direction="row" justifyContent="space-around" alignItems="center">
                 <Grid item>
-                    <h2>{state.player1}</h2>
-                    <Card>Score: {scorePlayer1}</Card>
+                    <h2 id="player-1-name">{usePlayer('player1')}</h2>
+                    <Card id="score-player-1">Score: {scorePlayer1}</Card>
                 </Grid>
                 <Grid item>
-                    <h2>{state.player2}</h2>
-                    <Card>Score: {scorePlayer2}</Card>
+                    <h2 id="player-1-name">{usePlayer("player2")}</h2>
+                    <Card id="score-player-2">Score: {scorePlayer2}</Card>
                 </Grid>
             </Grid>
             <Grid sx={{marginTop:3}} alignItems="center" container direction="row" justifyContent="space-around">
@@ -45,7 +43,7 @@ function GameCounter () {
                 <h2>Score in WTC:</h2>
                 </Grid>
                 <Grid item>
-                <h3>{wtcConverter(scorePlayer1, scorePlayer2)}</h3>
+                <h3 id="score-wtc">{wtcConverter(scorePlayer1, scorePlayer2)}</h3>
                 </Grid>
             </Grid>
             <Grid spacing={2} container direction="column" justifyContent="space-around" alignItems="center" sx={{
@@ -53,7 +51,8 @@ function GameCounter () {
             }}>
                 <Grid item>
                     <Counter 
-                        player={state.player1} 
+                        id="counter-player1-primary"
+                        player={usePlayer('player1')} 
                         playerScoreDecrese={handleDecreseScorePlayer1}
                         playerScoreIncrease={handleIncreaseScorePlayer1}
                         >
@@ -61,7 +60,8 @@ function GameCounter () {
                 </Grid>
                 <Grid item>
                 <Counter 
-                        player={state.player2} 
+                        id="counter-player2-primary"
+                        player={usePlayer('player2')} 
                         playerScoreDecrese={handleDecreseScorePlayer2}
                         playerScoreIncrease={handleIncreaseScorePlayer2}
                         >
@@ -72,36 +72,37 @@ function GameCounter () {
             sx={{
                 marginTop: 3,
             }}>
-                <h3>{state.player1} Secondary Missions</h3>
-                {state.player1SelectedMissions.filter((word: string) => word !== 'placeholder').map((mission: string) => {
+                <h3>{usePlayer('player1')} Secondary Missions</h3>
+                {usePlayerFilteredMissions('player1SelectedMissions').map((mission: string) => {
                     return (
-                        <Grid item>
+                        <Grid item key={mission}>
                         <Counter
                             mission = {mission}
                             playerScoreDecrese={handleDecreseScorePlayer1}
                             playerScoreIncrease={handleIncreaseScorePlayer1}
+                            key={mission}
                             >
                         </Counter>
                     </Grid>
                     )
                 })}
             </Grid>
-            <Grid spacing={2} container direction="column" justifyContent="space-around" alignItems="center"
+            <Grid spacing={2} container direction="column" justifyContent="space-around" alignItems="center" key="grid-2-player"
             sx={{
                 marginTop: 3,
             }}>
-                <h3>{state.player2} Secondary Missions</h3>
-                {state.player2SelectedMissions.map((mission: string) => {
-                    if (mission !== 'placeholder') {
-                    return (<Grid item>
+                <h3>{usePlayer('player2')} Secondary Missions</h3>
+                {usePlayerFilteredMissions('player2SelectedMissions').map((mission: string) => {
+                    return (<Grid item key={mission}>
                         <Counter
                             mission = {mission}
                             playerScoreDecrese={handleDecreseScorePlayer2}
                             playerScoreIncrease={handleIncreaseScorePlayer2}
+                            key={mission}
                             >
                         </Counter>
                     </Grid>)
-                } else return ''})}
+                })}
             </Grid>
         </Container>
 }

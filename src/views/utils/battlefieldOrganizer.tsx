@@ -1,6 +1,6 @@
 import missions from "../../db/missions";
 
-export function battlefieldSupremacyOrganizer (playerArmySelected: string): string[] {
+export function battlefieldSupremacyOrganizer (playerArmySelected: string|string[]): string[] {
     let battlefieldSupremacyWithArmy = []
     battlefieldSupremacyWithArmy = [...missions.main.battlefield]
 

@@ -2,27 +2,27 @@ import Container from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Autocomplete from '@mui/material/Autocomplete';
 import { TextField, Button } from '@mui/material';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { noMercyMissionsOrganizer} from './utils/noMercyMissionsOrganizer';
 import { purgeTheEnemyMissionsOrganizer } from './utils/purgeTheEnemyMissionsOrganizer';
 import { warpcraftOrganizer } from './utils/warpcraftOrganizer';
 import { battlefieldSupremacyOrganizer } from './utils/battlefieldOrganizer';
 import { shadowOperationOrganizer } from './utils/shadowOperationOrganizer';
-import { State } from './state';
 import store from '../store/store';
+import { usePlayer, useArmyPlayer } from '../store/selectors';
 
 
 function MissionsPage () {
 
-    const player1 = useSelector((state: State) => state.player1);
-    const player1Army = useSelector((state: State) => state.player1SelectedArmy)
+    const player1 = usePlayer("player1");
+    const player1Army = useArmyPlayer('player1SelectedArmy');
     const noMercyPlayer1 =  noMercyMissionsOrganizer(player1Army)
     const warpcraftPlayer1 = warpcraftOrganizer(player1Army)
     const battlefieldSupremacyPlayer1 = battlefieldSupremacyOrganizer(player1Army)
     const shadowOperationPlayer1 = shadowOperationOrganizer(player1Army);
     
-    const player2 = useSelector((state: State) => state.player2);
-    const player2Army = useSelector((state: State) => state.player2SelectedArmy);
+    const player2 = usePlayer("player2");
+    const player2Army = useArmyPlayer('player2SelectedArmy');
     const noMercyPlayer2 =  noMercyMissionsOrganizer(player2Army);
     const warpcraftPlayer2 = warpcraftOrganizer(player2Army);
     const battlefieldSupremacyPlayer2 = battlefieldSupremacyOrganizer(player2Army);
