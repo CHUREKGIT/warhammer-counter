@@ -2,6 +2,7 @@ import Container from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Autocomplete from '@mui/material/Autocomplete';
 import { TextField, Button } from '@mui/material';
+import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { noMercyMissionsOrganizer} from './utils/noMercyMissionsOrganizer';
 import { purgeTheEnemyMissionsOrganizer } from './utils/purgeTheEnemyMissionsOrganizer';
@@ -10,9 +11,25 @@ import { battlefieldSupremacyOrganizer } from './utils/battlefieldOrganizer';
 import { shadowOperationOrganizer } from './utils/shadowOperationOrganizer';
 import store from '../store/store';
 import { usePlayer, useArmyPlayer } from '../store/selectors';
+import { MissionDetails } from './utils/MissionDetails';
 
 
 function MissionsPage () {
+
+    const [renderButton, setRenderButton] = useState([
+        false,
+        false,
+        false,
+        false,
+        false 
+    ]);    
+    const [renderMissionDetails, setRenderMissionDetails] = useState([
+        false,
+        false,
+        false,
+        false,
+        false 
+    ]);    
 
     const player1 = usePlayer("player1");
     const player1Army = useArmyPlayer('player1SelectedArmy');
@@ -36,11 +53,15 @@ function MissionsPage () {
     const setMissionPlayer1 = (value:string|null, pos:number) =>{
         const state = store.getState()
         const realMissionsPlayer1 = state.player1SelectedMissions.filter((mission:string) => mission !== 'placeholder')
-        if ( realMissionsPlayer1.length <= 2){
+        if ( realMissionsPlayer1.length <= 2 && value != null){
             dispatch({ type: 'SET_MISSION_PLAYER1', selectedMission: value, pos:pos });
+            renderButton.splice(pos, 1, true)
+            setRenderButton([...renderButton])
         } else if (value == null) {
             dispatch({type: 'DELETE_MISSION_PLAYER1', pos: pos})
             realMissionsPlayer1.splice(pos,1)
+            renderButton.splice(pos, 1, false)
+            setRenderButton([...renderButton])
         }else {
             alert("You can't select more Missions!")
         }
@@ -61,6 +82,30 @@ function MissionsPage () {
         
     }
 
+    const onClickButtonHandler = (position: number) => {
+        if (renderMissionDetails[position]){
+            console.log(renderMissionDetails[position])
+            renderMissionDetails.splice(position, 1, false)
+            setRenderMissionDetails([...renderMissionDetails])
+        } else {
+            renderMissionDetails.splice(position, 1, true)
+            setRenderMissionDetails([...renderMissionDetails])
+        }
+        
+    }
+
+    type ButtonProps = {
+        missionPosition: number
+    }
+
+    const ButtonMissionDetails = (props: ButtonProps) => {
+        return (
+            <Grid spacing={2} container direction="column" justifyContent="space-around" alignItems="center">
+                    <Grid item><Button variant="contained" onClick={() => onClickButtonHandler(props.missionPosition)}>Mission Details</Button></Grid>
+            </Grid>
+                    
+        )
+    }
 
     return <Container maxWidth="xl">
                 <Grid spacing={2} container direction="column" justifyContent="space-around" alignItems="center">
@@ -68,16 +113,19 @@ function MissionsPage () {
                         <h1>Choose Your Mission!</h1>
                     </Grid>
                     <Grid item >
-                        <Autocomplete
-                            disablePortal
-                            id="player1-purge-the-enemy"
-                            data-testid='autocomplete-purge'
-                            options={purgeTheEnemyPlayer1}
-                            sx={{ width: 300 }}
-                            renderInput={(params) => <TextField {...params} label={`${player1}'s Purge The Enemy`}
-                            />}
-                            onChange = {(event, value) => setMissionPlayer1(value, 0)}
-                        />
+                            <Autocomplete
+                                disablePortal
+                                id="player1-purge-the-enemy"
+                                data-testid='autocomplete-purge'
+                                options={purgeTheEnemyPlayer1}
+                                sx={{ width: 300 }}
+                                renderInput={(params) => <TextField {...params} label={`${player1}'s Purge The Enemy`}
+                                />}
+                                onChange = {(event, value) => setMissionPlayer1(value, 0)}
+                                //napisz funkcje która odpala dwie funkcje na onChange
+                            />
+                            {renderButton[0] ? <ButtonMissionDetails missionPosition={0}></ButtonMissionDetails> : '' }
+                            {renderMissionDetails[0] ? <MissionDetails position={0} player={'player1SelectedMissions'}></MissionDetails> : '' } 
                     </Grid>
                     <Grid item>
                         <Autocomplete
@@ -90,7 +138,9 @@ function MissionsPage () {
                             />}
                             onChange = {(event, value) => setMissionPlayer1(value, 1)}
                         />
+                            {renderButton[1] ? <ButtonMissionDetails missionPosition={1}></ButtonMissionDetails> : '' }
                     </Grid>
+                    
                     <Grid item>
                         <Autocomplete
                             disablePortal
