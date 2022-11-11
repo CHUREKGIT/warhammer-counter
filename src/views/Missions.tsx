@@ -11,19 +11,34 @@ import { battlefieldSupremacyOrganizer } from './utils/battlefieldOrganizer';
 import { shadowOperationOrganizer } from './utils/shadowOperationOrganizer';
 import store from '../store/store';
 import { usePlayer, useArmyPlayer } from '../store/selectors';
-import { MissionDetails } from './utils/MissionDetails';
+import { MissionDetails } from './components/MissionDetails';
 
 
 function MissionsPage () {
 
-    const [renderButton, setRenderButton] = useState([
+    const [renderButtonPlayer1, setRenderButtonPlayer1] = useState([
         false,
         false,
         false,
         false,
         false 
     ]);    
-    const [renderMissionDetails, setRenderMissionDetails] = useState([
+    const [renderMissionDetailsPlayer1, setRenderMissionDetailsPlayer1] = useState([
+        false,
+        false,
+        false,
+        false,
+        false 
+    ]);  
+    
+    const [renderButtonPlayer2, setRenderButtonPlayer2] = useState([
+        false,
+        false,
+        false,
+        false,
+        false 
+    ]);    
+    const [renderMissionDetailsPlayer2, setRenderMissionDetailsPlayer2] = useState([
         false,
         false,
         false,
@@ -55,13 +70,13 @@ function MissionsPage () {
         const realMissionsPlayer1 = state.player1SelectedMissions.filter((mission:string) => mission !== 'placeholder')
         if ( realMissionsPlayer1.length <= 2 && value != null){
             dispatch({ type: 'SET_MISSION_PLAYER1', selectedMission: value, pos:pos });
-            renderButton.splice(pos, 1, true)
-            setRenderButton([...renderButton])
+            renderButtonPlayer1.splice(pos, 1, true)
+            setRenderButtonPlayer1([...renderButtonPlayer1])
         } else if (value == null) {
             dispatch({type: 'DELETE_MISSION_PLAYER1', pos: pos})
             realMissionsPlayer1.splice(pos,1)
-            renderButton.splice(pos, 1, false)
-            setRenderButton([...renderButton])
+            renderButtonPlayer1.splice(pos, 1, false)
+            setRenderButtonPlayer1([...renderButtonPlayer1])
         }else {
             alert("You can't select more Missions!")
         }
@@ -72,9 +87,13 @@ function MissionsPage () {
         const realMissionsPlayer2 = state.player2SelectedMissions.filter((mission:string) => mission !== 'placeholder')
         if (realMissionsPlayer2.length <= 2){
             dispatch({ type: 'SET_MISSION_PLAYER2', selectedMission: value, pos:pos });
+            renderButtonPlayer2.splice(pos, 1, true)
+            setRenderButtonPlayer2([...renderButtonPlayer2])
         } else if (value == null) {
             dispatch({type: 'DELETE_MISSION_PLAYER1', pos: pos})
             realMissionsPlayer2.splice(pos,1)
+            renderButtonPlayer2.splice(pos, 1, false)
+            setRenderButtonPlayer2([...renderButtonPlayer2])
         } 
         else {
             alert ("You can't select more Missions!")
@@ -82,28 +101,35 @@ function MissionsPage () {
         
     }
 
-    const onClickButtonHandler = (position: number) => {
-        if (renderMissionDetails[position]){
-            console.log(renderMissionDetails[position])
-            renderMissionDetails.splice(position, 1, false)
-            setRenderMissionDetails([...renderMissionDetails])
-        } else {
-            renderMissionDetails.splice(position, 1, true)
-            setRenderMissionDetails([...renderMissionDetails])
+    const onClickButtonHandler = (position: number, player: string) => {
+        if(player === 'player1'){
+            if (renderMissionDetailsPlayer1[position]){
+                renderMissionDetailsPlayer1.splice(position, 1, false)
+                setRenderMissionDetailsPlayer1([...renderMissionDetailsPlayer1])
+            } else {
+                renderMissionDetailsPlayer1.splice(position, 1, true)
+                setRenderMissionDetailsPlayer1([...renderMissionDetailsPlayer1])
+            }
         }
-        
+        if(player === 'player2'){
+            if (renderMissionDetailsPlayer2[position]){
+                renderMissionDetailsPlayer2.splice(position, 1, false)
+                setRenderMissionDetailsPlayer2([...renderMissionDetailsPlayer2])
+            } else {
+                renderMissionDetailsPlayer2.splice(position, 1, true)
+                setRenderMissionDetailsPlayer2([...renderMissionDetailsPlayer2])
+            }
+        }
     }
 
     type ButtonProps = {
-        missionPosition: number
+        missionPosition: number,
+        player: string
     }
 
     const ButtonMissionDetails = (props: ButtonProps) => {
         return (
-            <Grid spacing={2} container direction="column" justifyContent="space-around" alignItems="center">
-                    <Grid item><Button variant="contained" onClick={() => onClickButtonHandler(props.missionPosition)}>Mission Details</Button></Grid>
-            </Grid>
-                    
+            <Grid item><Button variant="contained" onClick={() => onClickButtonHandler(props.missionPosition, props.player)}>Mission Details</Button></Grid> 
         )
     }
 
@@ -122,11 +148,10 @@ function MissionsPage () {
                                 renderInput={(params) => <TextField {...params} label={`${player1}'s Purge The Enemy`}
                                 />}
                                 onChange = {(event, value) => setMissionPlayer1(value, 0)}
-                                //napisz funkcje która odpala dwie funkcje na onChange
                             />
-                            {renderButton[0] ? <ButtonMissionDetails missionPosition={0}></ButtonMissionDetails> : '' }
-                            {renderMissionDetails[0] ? <MissionDetails position={0} player={'player1SelectedMissions'}></MissionDetails> : '' } 
                     </Grid>
+                    {renderButtonPlayer1[0] ? <ButtonMissionDetails missionPosition={0} player={'player1'}></ButtonMissionDetails> : '' }
+                    {renderMissionDetailsPlayer1[0] ? <MissionDetails position={0} player={'player1SelectedMissions'}></MissionDetails> : '' } 
                     <Grid item>
                         <Autocomplete
                             disablePortal
@@ -138,9 +163,9 @@ function MissionsPage () {
                             />}
                             onChange = {(event, value) => setMissionPlayer1(value, 1)}
                         />
-                            {renderButton[1] ? <ButtonMissionDetails missionPosition={1}></ButtonMissionDetails> : '' }
                     </Grid>
-                    
+                    {renderButtonPlayer1[1] ? <ButtonMissionDetails missionPosition={1} player={'player1'}></ButtonMissionDetails> : '' }
+                    {renderMissionDetailsPlayer1[1] ? <MissionDetails position={1} player={'player1SelectedMissions'}></MissionDetails> : '' } 
                     <Grid item>
                         <Autocomplete
                             disablePortal
@@ -151,7 +176,9 @@ function MissionsPage () {
                             />}
                             onChange = {(event, value) => setMissionPlayer1(value, 2)}
                         />
-                    </Grid>  
+                    </Grid>
+                    {renderButtonPlayer1[2] ? <ButtonMissionDetails missionPosition={2} player={'player1'}></ButtonMissionDetails> : '' }
+                    {renderMissionDetailsPlayer1[2] ? <MissionDetails position={2} player={'player1SelectedMissions'}></MissionDetails> : '' }   
                     <Grid item> 
                         <Autocomplete
                             disablePortal
@@ -163,6 +190,8 @@ function MissionsPage () {
                             onChange = {(event, value) => setMissionPlayer1(value, 3)}
                         />
                     </Grid>
+                    {renderButtonPlayer1[3] ? <ButtonMissionDetails missionPosition={3} player={'player1'}></ButtonMissionDetails> : '' }
+                    {renderMissionDetailsPlayer1[3] ? <MissionDetails position={3} player={'player1SelectedMissions'}></MissionDetails> : '' }   
                     <Grid item>
                         <Autocomplete
                             disablePortal
@@ -174,6 +203,8 @@ function MissionsPage () {
                             onChange = {(event, value) => setMissionPlayer1(value, 4)}
                             />
                     </Grid>
+                    {renderButtonPlayer1[4] ? <ButtonMissionDetails missionPosition={4} player={'player1'}></ButtonMissionDetails> : '' }
+                    {renderMissionDetailsPlayer1[4] ? <MissionDetails position={4} player={'player1SelectedMissions'}></MissionDetails> : '' }   
                     <Grid item>
                         <Autocomplete
                             disablePortal
@@ -185,6 +216,8 @@ function MissionsPage () {
                             onChange = {(event, value) => setMissionPlayer2(value, 0)}
                         />
                     </Grid>
+                    {renderButtonPlayer2[0] ? <ButtonMissionDetails missionPosition={0} player={'player2'}></ButtonMissionDetails> : '' }
+                    {renderMissionDetailsPlayer2[0] ? <MissionDetails position={0} player={'player2SelectedMissions'}></MissionDetails> : '' } 
                     <Grid item>
                         <Autocomplete
                             disablePortal

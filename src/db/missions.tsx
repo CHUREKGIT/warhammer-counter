@@ -90,7 +90,7 @@ const missions = {
         },
         ork: {
             purgeTheEnemy: "O: DA BIGGEST AND DA BEST",
-            noMercy: "O: STOMP'EM GOOD",
+            noMercy: "O: STOMP EM GOOD",
             battlefield: "O: GREEN TIDE",
             shadowOperation:"O: GET DA GOOD BITZ"
         },
