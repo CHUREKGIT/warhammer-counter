@@ -5,11 +5,20 @@ import Counter from '../components/Counter';
 import { useState } from 'react';
 import { wtcConverter } from './utils/wtcConverter';
 import { usePlayer, usePlayerFilteredMissions} from '../store/selectors';
+import IconButton from '@mui/material/IconButton';
+import HelpIcon from '@mui/icons-material/Help';
+import { MissionDetails } from './components/MissionDetails';
 
 
 function GameCounter () {
     const [scorePlayer1, setScorePlayer1] = useState(10)
     const [scorePlayer2, setScorePlayer2] = useState(10)
+
+    const [firstPlayerInfoMission, setFirstPlayerInforMission] = useState([
+        false, 
+        false,
+        false
+    ])
 
     const handleIncreaseScorePlayer1 = () => {
         setScorePlayer1(scorePlayer1 + 1)
@@ -25,6 +34,11 @@ function GameCounter () {
 
     const handleDecreseScorePlayer2 = () => {
         setScorePlayer2((Math.max(scorePlayer2 - 1, 0)))
+    }
+
+    const clickHander = (index : number ) => {
+        firstPlayerInfoMission.splice(index, 1, true)
+        setFirstPlayerInforMission([...firstPlayerInfoMission])
     }
 
     return <Container maxWidth="xl">
@@ -73,17 +87,28 @@ function GameCounter () {
                 marginTop: 3,
             }}>
                 <h3>{usePlayer('player1')} Secondary Missions</h3>
-                {usePlayerFilteredMissions('player1SelectedMissions').map((mission: string) => {
+                {usePlayerFilteredMissions('player1SelectedMissions').map((mission: string, index: number) => {
                     return (
                         <Grid item key={mission}>
-                        <Counter
-                            mission = {mission}
-                            playerScoreDecrese={handleDecreseScorePlayer1}
-                            playerScoreIncrease={handleIncreaseScorePlayer1}
-                            key={mission}
-                            >
-                        </Counter>
-                    </Grid>
+                             <Grid spacing={1} container direction="row" justifyContent="space-around" alignItems="center">
+                                <Grid item>
+                                    <IconButton onClick = {() => clickHander(index) }>
+                                        <HelpIcon></HelpIcon>
+                                    </IconButton>
+                                </Grid>
+                                <Grid item>
+                                    <Counter
+                                    mission = {mission}
+                                    playerScoreDecrese={handleDecreseScorePlayer1}
+                                    playerScoreIncrease={handleIncreaseScorePlayer1}
+                                    key={mission}
+                                        />
+                                </Grid>
+                            </Grid>
+                            <Grid item>
+                                    {firstPlayerInfoMission[index] ? <MissionDetails position={index} player={'player1SelectedMissions'}/> : ''}
+                            </Grid>
+                        </Grid>
                     )
                 })}
             </Grid>
