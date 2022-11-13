@@ -229,6 +229,8 @@ function MissionsPage () {
                             onChange = {(event, value) => setMissionPlayer2(value, 1)}
                         />
                     </Grid>
+                    {renderButtonPlayer2[1] ? <ButtonMissionDetails missionPosition={1} player={'player2'}></ButtonMissionDetails> : '' }
+                    {renderMissionDetailsPlayer2[1] ? <MissionDetails position={1} player={'player2SelectedMissions'}></MissionDetails> : '' } 
                     <Grid item>
                         <Autocomplete
                             disablePortal
@@ -240,6 +242,8 @@ function MissionsPage () {
                             onChange = {(event, value) => setMissionPlayer2(value, 2)}
                         />
                     </Grid>
+                    {renderButtonPlayer2[2] ? <ButtonMissionDetails missionPosition={2} player={'player2'}></ButtonMissionDetails> : '' }
+                    {renderMissionDetailsPlayer2[2] ? <MissionDetails position={2} player={'player2SelectedMissions'}></MissionDetails> : '' } 
                     <Grid item>
                         <Autocomplete
                             disablePortal
@@ -251,6 +255,8 @@ function MissionsPage () {
                             onChange = {(event, value) => setMissionPlayer2(value, 3)}
                         />
                     </Grid>
+                    {renderButtonPlayer2[3] ? <ButtonMissionDetails missionPosition={3} player={'player2'}></ButtonMissionDetails> : '' }
+                    {renderMissionDetailsPlayer2[3] ? <MissionDetails position={3} player={'player2SelectedMissions'}></MissionDetails> : '' } 
                     <Grid item> 
                         <Autocomplete
                             disablePortal
@@ -262,6 +268,8 @@ function MissionsPage () {
                             onChange = {(event, value) => setMissionPlayer2(value, 4)}
                         />
                     </Grid>
+                    {renderButtonPlayer2[4] ? <ButtonMissionDetails missionPosition={4} player={'player2'}></ButtonMissionDetails> : '' }
+                    {renderMissionDetailsPlayer2[4] ? <MissionDetails position={4} player={'player2SelectedMissions'}></MissionDetails> : '' } 
                     <Grid item>
                         <Button variant="contained" href={`${process.env.PUBLIC_URL}/game`}>START GAME!</Button>
                     </Grid>
