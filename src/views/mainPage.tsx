@@ -33,7 +33,7 @@ function MainPage () {
 
     return <Container maxWidth="xl">
                 <Grid container direction="column" justifyContent="center" alignItems="center">
-                    <h1>{title}</h1>
+                        <h2>{title}</h2>
                         <TextField id="player-1" label="Player 1" variant="standard" onChange={setPlayer1} />
                         <h2>Army Player 1:</h2>
                         <Autocomplete
