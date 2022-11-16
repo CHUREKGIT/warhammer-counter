@@ -83,7 +83,46 @@ export function MissionDetails (props: MissionDetailsProps) {
             return (
                 <AlertMission details={'If you select this secondary objective, ORKS CORE units from your army can attempt the following action: /// Get da Good Bitz (Action): At the end of your Movement phase, one or more ORKS CORE units from your army can start to perform this action. Each unit from your army that starts to perform this action must be within range of a different objective marker you control that is not in either player’s deployment zone. If a LOOTAS or GRETCHIN unit is performing this action, it is completed at the end of your turn; otherwise, it is completed at the start of your next Command phase or at the end of the battle (whichever comes first). In any case, the action is only completed if the unit performing it is still within range of the same objective marker. /// Score 3 victory points each time a unit from your army completes this action (to a maximum of 5 victory points per battle round).'}/>
             )
+        case 'AS: SLAY THE HERETIC':
+            return (
+                <AlertMission details ={<div>At the end of the battle round:
+                    <ol>
+                        <li>Score 1 victory point for each enemy unit destroyed by an attack made with a bolt weapon by an ADEPTUS MINISTORUM unit from your army (to a maximum of 5 victory points per battle).</li>
+                        <li>Score 1 victory point for each enemy unit destroyed by an attack made with a flame weapon by an ADEPTUS MINISTORUM unit from your army (to a maximum of 5 victory points per battle).</li>
+                        <li> Score 1 victory point for each enemy unit destroyed by an attack made with a melta weapon by an ADEPTUS MINISTORUM unit from your army (to a maximum of 5 victory points per battle).</li>
+                    </ol></div>} />)
+        case 'AS: A LEAP OF FAITH':
+            return (
+                <AlertMission details ={'At the end of each players turn, if two Acts of Faith were performed by ADEPTA SORORITAS units from your army that turn, score 1 victory point if it is your turn, or 2 victory points if it is your opponent’s turn. If three or more Acts of Faith were performed by ADEPTA SORORITAS units from your army that turn, score 1 additional victory point. Note that Acts of Faith performed due to Cherub dice bestowed by incensor cherubs do not count towards this secondary objective. You can score a maximum of 12 victory points from this secondary objective per battle.'} />)
         
+        case 'AS: DEFEND THE SHRINE':
+            return (
+                <AlertMission details ={<div>
+                    If you select this objective, during the Resolve Pre-battle Abilities step of the mission, select one objective marker on the battlefield not in your deployment zone to be the Sacred Shrine objective marker (if the only objective marker on the battlefield is in your deployment zone, then this must be the Sacred Shrine objective marker).
+                    <ul>
+                        <li>At the end of your turn, score 3 victory points if you control the Sacred Shrine objective marker and an ADEPTUS MINISTORUM unit from your army is within range of that objective marker.</li>
+                        <li>At the end of the battle, if your opponent controls the Sacred Shrine objective marker, reduce the number of victory points you have scored from this secondary objective by 3 (to a minimum of 0).</li>
+                    </ul>
+                </div>} />)
+        case 'AS: SHADOW OPERATIONS':
+            return (
+                <AlertMission details ={<div>
+                    <strong>Sacred Grounds (Action)</strong>: One or more ADEPTA SORORITAS INFANTRY or CULT IMPERIALIS PRIEST units from your army can start to perform this action at the end of your Movement phase. Each unit from your army that starts to perform this action must be within range of a different objective marker you control that has not been consecrated by your army (see below). The action is completed at the start of your next Command phase or at the end of the battle (whichever comes first). If completed, that objective marker is said to have been consecrated by your army, and until the end of the battle, that objective marker gains the Inspiring (ADEPTUS MINISTORUM) terrain trait (it is not considered to be a terrain feature for any other rules purposes). <br/><br/>
+                    
+                    Each time a unit from your army completes this action, if the objective marker that was consecrated by that action is wholly within your deployment zone, score 1 victory point; otherwise, score 5 victory points.
+                </div>} />)
+        case 'AC: AURIC MORTALIS':
+            return (
+                <AlertMission details ={<div>
+                    If you select this objective, during the Resolve Pre-battle Abilities step of the mission, select one PRIMARCH or SUPREME COMMANDER unit from your opponent’s army to be marked for death (see below). If no such unit exists, select the unit from your opponent’s army with the highest points value (excluding AIRCRAFT units) to be marked for death. If two or more units are tied, you choose between them. A unit’s points value includes the points of all weapons, wargear and upgrades it has. <br/><br/>
+
+                    At the end of the battle, score victory points as follows: <br/>
+                        <ul>
+                            <li>Score 5 victory points if the unit you selected to be marked for death is destroyed.</li>
+                            <li>Score 5 victory points if the unit you selected to be marked for death was destroyed as a result of a melee attack made by an ADEPTUS CUSTODES or ANATHEMA PSYKANA unit from your army.</li>
+                            <li>Score 5 victory points if both of the above are true and the unit you selected to be marked for death was not within your deployment zone when it was destroyed.</li>
+                        </ul>
+                </div>} />)
     }
     return <AlertMission details={'Nie znam tej misji'} />
 }

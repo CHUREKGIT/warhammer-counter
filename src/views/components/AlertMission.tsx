@@ -2,7 +2,7 @@ import Alert from '@mui/material/Alert';
 import Grid from '@mui/material/Grid';
 
 type AlertMissionProps = {
-    details: string
+    details: any
 }
 
 export function AlertMission (props: AlertMissionProps) {
