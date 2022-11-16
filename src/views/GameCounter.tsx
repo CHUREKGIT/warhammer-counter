@@ -20,6 +20,12 @@ function GameCounter () {
         false
     ])
 
+    const [secondPlayerInfoMission, setSecondPlayerInforMission] = useState([
+        false, 
+        false,
+        false
+    ])
+
     const handleIncreaseScorePlayer1 = () => {
         setScorePlayer1(scorePlayer1 + 1)
       };
@@ -30,15 +36,30 @@ function GameCounter () {
 
     const handleIncreaseScorePlayer2 = () => {
         setScorePlayer2(scorePlayer2 + 1)
-      };
+    };
 
     const handleDecreseScorePlayer2 = () => {
         setScorePlayer2((Math.max(scorePlayer2 - 1, 0)))
     }
 
-    const clickHander = (index : number ) => {
-        firstPlayerInfoMission.splice(index, 1, true)
-        setFirstPlayerInforMission([...firstPlayerInfoMission])
+    const clickHander = (index : number, player: string ) => {
+        if (player === 'player1'){
+            if (firstPlayerInfoMission[index]){
+                firstPlayerInfoMission.splice(index, 1, false)
+                setFirstPlayerInforMission([...firstPlayerInfoMission])
+            } else {
+                firstPlayerInfoMission.splice(index, 1, true)
+                setFirstPlayerInforMission([...firstPlayerInfoMission])
+            }
+        } else {
+            if (secondPlayerInfoMission[index]){
+                secondPlayerInfoMission.splice(index, 1, false)
+                setSecondPlayerInforMission([...secondPlayerInfoMission])
+            } else {
+                secondPlayerInfoMission.splice(index, 1, true)
+                setSecondPlayerInforMission([...secondPlayerInfoMission])
+            }
+        }
     }
 
     return <Container maxWidth="xl">
@@ -92,7 +113,7 @@ function GameCounter () {
                         <Grid item key={mission}>
                              <Grid spacing={1} container direction="row" justifyContent="space-around" alignItems="center">
                                 <Grid item>
-                                    <IconButton onClick = {() => clickHander(index) }>
+                                    <IconButton onClick = {() => clickHander(index, 'player1') }>
                                         <HelpIcon></HelpIcon>
                                     </IconButton>
                                 </Grid>
@@ -117,16 +138,29 @@ function GameCounter () {
                 marginTop: 3,
             }}>
                 <h3>{usePlayer('player2')} Secondary Missions</h3>
-                {usePlayerFilteredMissions('player2SelectedMissions').map((mission: string) => {
-                    return (<Grid item key={mission}>
-                        <Counter
-                            mission = {mission}
-                            playerScoreDecrese={handleDecreseScorePlayer2}
-                            playerScoreIncrease={handleIncreaseScorePlayer2}
-                            key={mission}
-                            >
-                        </Counter>
-                    </Grid>)
+                {usePlayerFilteredMissions('player2SelectedMissions').map((mission: string, index: number) => {
+                    return (
+                        <Grid item key={mission}>
+                             <Grid spacing={1} container direction="row" justifyContent="space-around" alignItems="center">
+                                <Grid item>
+                                    <IconButton onClick = {() => clickHander(index, 'player2') }>
+                                        <HelpIcon></HelpIcon>
+                                    </IconButton>
+                                </Grid>
+                                <Grid item>
+                                    <Counter
+                                    mission = {mission}
+                                    playerScoreDecrese={handleDecreseScorePlayer2}
+                                    playerScoreIncrease={handleIncreaseScorePlayer2}
+                                    key={mission}
+                                        />
+                                </Grid>
+                            </Grid>
+                            <Grid item>
+                                    {secondPlayerInfoMission[index] ? <MissionDetails position={index} player={'player2SelectedMissions'}/> : ''}
+                            </Grid>
+                        </Grid>
+                    )
                 })}
             </Grid>
         </Container>
