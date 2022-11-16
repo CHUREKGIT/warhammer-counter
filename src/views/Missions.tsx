@@ -22,7 +22,8 @@ function MissionsPage () {
         false,
         false,
         false 
-    ]);    
+    ]); 
+    
     const [renderMissionDetailsPlayer1, setRenderMissionDetailsPlayer1] = useState([
         false,
         false,
