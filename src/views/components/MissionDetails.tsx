@@ -4,12 +4,16 @@ import { AlertMission } from './AlertMission'
 
 type MissionDetailsProps = {
     position: number,
-    player: string
+    player: string,
+    mission?: string
 }
 
 export function MissionDetails (props: MissionDetailsProps) {
-    const mission = usePlayerMissions(props.player)[props.position]
-
+    let mission = usePlayerMissions(props.player)[props.position]
+    if (props.mission) {
+        mission = props.mission
+    }
+    
     switch(mission) {
         case 'Assasination':
             return( 

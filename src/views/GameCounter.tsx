@@ -60,6 +60,7 @@ function GameCounter () {
                 setSecondPlayerInforMission([...secondPlayerInfoMission])
             }
         }
+        console.log(usePlayerFilteredMissions)
     }
 
     return <Container maxWidth="xl">
@@ -127,7 +128,7 @@ function GameCounter () {
                                 </Grid>
                             </Grid>
                             <Grid item>
-                                    {firstPlayerInfoMission[index] ? <MissionDetails position={index} player={'player1SelectedMissions'}/> : ''}
+                                    {firstPlayerInfoMission[index] ? <MissionDetails position={index} player={'player1SelectedMissions'} mission={mission}/> : ''}
                             </Grid>
                         </Grid>
                     )
@@ -157,7 +158,7 @@ function GameCounter () {
                                 </Grid>
                             </Grid>
                             <Grid item>
-                                    {secondPlayerInfoMission[index] ? <MissionDetails position={index} player={'player2SelectedMissions'}/> : ''}
+                                    {secondPlayerInfoMission[index] ? <MissionDetails position={index} player={'player2SelectedMissions'} mission={mission} /> : ''}
                             </Grid>
                         </Grid>
                     )
