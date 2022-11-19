@@ -5,9 +5,31 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: radial-gradient(#8D8DDA, #000235);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+h2 {
+  font-family: 'Outfit';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 100%;
+/* or 57px */
+  text-transform: capitalize;
+  color: #FFFFFF;
+}
+h3 {
+  font-family: 'Outfit';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 28px;
+/* or 57px */
+  text-transform: uppercase;
+  color: #ABD9D9;
 }
