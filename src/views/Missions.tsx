@@ -1,7 +1,6 @@
 import Container from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Autocomplete from '@mui/material/Autocomplete';
-import { TextField, Button, TextFieldProps } from '@mui/material';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { noMercyMissionsOrganizer} from './utils/noMercyMissionsOrganizer';
@@ -12,7 +11,7 @@ import { shadowOperationOrganizer } from './utils/shadowOperationOrganizer';
 import store from '../store/store';
 import { usePlayer, useArmyPlayer } from '../store/selectors';
 import { MissionDetails } from './components/MissionDetails';
-import { styled } from '@mui/material/styles';
+import { MissionSelectStyledTextField, StyledMissionDetailsButton } from './components/StyledComponents'
 
 
 
@@ -133,36 +132,9 @@ function MissionsPage () {
     
     const ButtonMissionDetails = (props: ButtonProps) => {
         return (
-            <Grid item><StyledMissionDetailsButton variant="contained" onClick={() => onClickButtonHandler(props.missionPosition, props.player)} missionPosition={0} player={''}>Mission Details</StyledMissionDetailsButton></Grid> 
+            <Grid item><StyledMissionDetailsButton variant="contained" onClick={() => onClickButtonHandler(props.missionPosition, props.player)}>Mission Details</StyledMissionDetailsButton></Grid> 
         )
     }
-    // Style
-    const StyledTextField = styled(TextField)<TextFieldProps>(({ theme }) => ({
-        input: {
-            color: '#09E9D2'
-        },
-        "& label, & label.Mui-focused": {
-        color: '#fff',
-        },
-        '& .MuiOutlinedInput-root': {
-            '& fieldset': {
-              borderColor: '#09E9D2',
-            },
-            '&:hover fieldset': {
-              borderColor: '#fff',
-            },
-        }
-      }));
-
-    const StyledMissionDetailsButton = styled(Button)<ButtonProps>(({ theme }) => ({
-        color: '#fff',
-        backgroundColor: '#8D8DDA',
-        borderRadius: 63,
-        '&:hover': {
-          backgroundColor: '#8D8DDA',
-        },
-      }));
-
 
     return <Container maxWidth="xl">
                 <Grid spacing={2} container direction="column" justifyContent="space-around" alignItems="center">
@@ -176,7 +148,7 @@ function MissionsPage () {
                                 data-testid='autocomplete-purge'
                                 options={purgeTheEnemyPlayer1}
                                 sx={{ width: 300 }}
-                                renderInput={(params) => <StyledTextField {...params} label={`${player1}'s Purge The Enemy`}
+                                renderInput={(params) => <MissionSelectStyledTextField {...params} label={`${player1}'s Purge The Enemy`}
                                 />}
                                 onChange = {(event, value) => setMissionPlayer1(value, 0)}
                             />
@@ -190,7 +162,7 @@ function MissionsPage () {
                             data-testid='autocomplete-nomercy'
                             options={noMercyPlayer1}
                             sx={{ width: 300 }}
-                            renderInput={(params) => <StyledTextField {...params} label={`${player1}'s No Mercy no Respite`}
+                            renderInput={(params) => <MissionSelectStyledTextField {...params} label={`${player1}'s No Mercy no Respite`}
                              />}
                             onChange = {(event, value) => setMissionPlayer1(value, 1)}
                         />
@@ -203,7 +175,7 @@ function MissionsPage () {
                             id="player1-warpcraft"
                             options={warpcraftPlayer1}
                             sx={{ width: 300 }}
-                            renderInput={(params) => <StyledTextField {...params} label={`${player1}'s Warpcraft`}
+                            renderInput={(params) => <MissionSelectStyledTextField {...params} label={`${player1}'s Warpcraft`}
                             />}
                             onChange = {(event, value) => setMissionPlayer1(value, 2)}
                         />
@@ -216,7 +188,7 @@ function MissionsPage () {
                             id="player1-battlefield-supremancy"
                             options={battlefieldSupremacyPlayer1}
                             sx={{ width: 300 }}
-                            renderInput={(params) => <StyledTextField {...params} label={`${player1}'s Battlefield Supremancy`}
+                            renderInput={(params) => <MissionSelectStyledTextField {...params} label={`${player1}'s Battlefield Supremancy`}
                             />}
                             onChange = {(event, value) => setMissionPlayer1(value, 3)}
                         />
@@ -229,7 +201,7 @@ function MissionsPage () {
                             id="player1-shadow-operation"
                             options={shadowOperationPlayer1}
                             sx={{ width: 300 }}
-                            renderInput={(params) => <StyledTextField {...params} label={`${player1}'s Shadow Operaration`}
+                            renderInput={(params) => <MissionSelectStyledTextField {...params} label={`${player1}'s Shadow Operaration`}
                             />}
                             onChange = {(event, value) => setMissionPlayer1(value, 4)}
                             />
@@ -245,7 +217,7 @@ function MissionsPage () {
                             id="player2-purge-the-enemy"
                             options={purgeTheEnemyPlayer2}
                             sx={{ width: 300 }}
-                            renderInput={(params) => <StyledTextField {...params} label={`${player2}'s Purge The Enemy`}
+                            renderInput={(params) => <MissionSelectStyledTextField {...params} label={`${player2}'s Purge The Enemy`}
                             />}
                             onChange = {(event, value) => setMissionPlayer2(value, 0)}
                         />
@@ -258,7 +230,7 @@ function MissionsPage () {
                             id="player2-nomercy-norespite"
                             options={noMercyPlayer2}
                             sx={{ width: 300 }}
-                            renderInput={(params) => <StyledTextField {...params} label={`${player2}'s No Mercy No Respite`}
+                            renderInput={(params) => <MissionSelectStyledTextField {...params} label={`${player2}'s No Mercy No Respite`}
                             />}
                             onChange = {(event, value) => setMissionPlayer2(value, 1)}
                         />
@@ -271,7 +243,7 @@ function MissionsPage () {
                             id="player2-warpcraft"
                             options={warpcraftPlayer2}
                             sx={{ width: 300 }}
-                            renderInput={(params) => <StyledTextField {...params} label={`${player2}'s Warpcraft`}
+                            renderInput={(params) => <MissionSelectStyledTextField {...params} label={`${player2}'s Warpcraft`}
                             />}
                             onChange = {(event, value) => setMissionPlayer2(value, 2)}
                         />
@@ -284,7 +256,7 @@ function MissionsPage () {
                             id="player2-battlefield-supremancy"
                             options={battlefieldSupremacyPlayer2}
                             sx={{ width: 300 }}
-                            renderInput={(params) => <StyledTextField {...params} label={`${player2}'s Battlefield Supremancy`}
+                            renderInput={(params) => <MissionSelectStyledTextField {...params} label={`${player2}'s Battlefield Supremancy`}
                             />}
                             onChange = {(event, value) => setMissionPlayer2(value, 3)}
                         />
@@ -297,7 +269,7 @@ function MissionsPage () {
                             id="player2-shadow-operation"
                             options={shadowOperationPlayer2}
                             sx={{ width: 300 }}
-                            renderInput={(params) => <StyledTextField {...params} label={`${player2}'s Shadow Opearation`}
+                            renderInput={(params) => <MissionSelectStyledTextField {...params} label={`${player2}'s Shadow Opearation`}
                             />}
                             onChange = {(event, value) => setMissionPlayer2(value, 4)}
                         />
@@ -305,7 +277,7 @@ function MissionsPage () {
                     {renderButtonPlayer2[4] ? <ButtonMissionDetails missionPosition={4} player={'player2'}></ButtonMissionDetails> : '' }
                     {renderMissionDetailsPlayer2[4] ? <MissionDetails position={4} player={'player2SelectedMissions'}></MissionDetails> : '' } 
                     <Grid item>
-                        <Button variant="contained" href={`${process.env.PUBLIC_URL}/game`}>START GAME!</Button>
+                        <StyledMissionDetailsButton variant="contained" href={`${process.env.PUBLIC_URL}/game`} >START GAME!</StyledMissionDetailsButton>
                     </Grid>
                 </Grid>
             </Container>
