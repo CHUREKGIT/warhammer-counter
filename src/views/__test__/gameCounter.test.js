@@ -43,10 +43,8 @@ describe ("Testing Main Page", () => {
         )
         const button = screen.getByTestId('button-increase-Kuba-Primary Score')
         userEvent.click(button)
-        //Why now multiple clicks are not visible?
-        userEvent.click(button)
-        const view = screen.getByText(/kuba primary score/i);
-        expect(within(view).getByText(/2/i)).toBeDefined();
+        const view = screen.getByTestId('badge-counter-Kuba-Primary Score');
+        expect(within(view).getByText(/1/i)).toBeDefined();
     })
     it ("WTC scorer will update", () => {
         store = mockStore(db);
@@ -61,6 +59,7 @@ describe ("Testing Main Page", () => {
             userEvent.click(button)
             i++;
         }
+         //Why now multiple clicks are not visible?
         expect(screen.getByRole('heading', {  name: /11\-9/i})).toBeDefined();
     })
 

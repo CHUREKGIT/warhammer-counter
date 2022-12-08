@@ -38,7 +38,7 @@ function Counter (props:any) {
                     },
                         }}/>
                     <div>
-                    <StyledBadge color="secondary" badgeContent={count} id={`badge-counter-${props.player}-${props.mission ? props.mission :'Primary Score'}`}>
+                    <StyledBadge color="secondary" badgeContent={count} id={`badge-counter-${props.player}-${props.mission ? props.mission :'Primary Score'}`} data-testid={`badge-counter-${props.player}-${props.mission ? props.mission :'Primary Score'}`}>
                         <p>{props.player ? props.player : ''} {props.mission ? props.mission :'Primary Score'}</p>
                     </StyledBadge>
                         <ButtonGroup
