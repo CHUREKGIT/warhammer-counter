@@ -43,6 +43,7 @@ describe ("Testing Main Page", () => {
         )
         const button = screen.getByTestId('button-increase-Kuba-Primary Score')
         userEvent.click(button)
+        //Why now multiple clicks are not visible?
         userEvent.click(button)
         const view = screen.getByText(/kuba primary score/i);
         expect(within(view).getByText(/2/i)).toBeDefined();

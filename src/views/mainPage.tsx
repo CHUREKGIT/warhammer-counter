@@ -53,7 +53,7 @@ function MainPage () {
                                 id="army-player-1"
                                 options={useArmies()}
                                 sx={{ width: 300 }}
-                                renderInput={(params) => <SelectArmyStyledTextField {...params} label="Select Army" 
+                                renderInput={(params) => <SelectArmyStyledTextField {...params} label="Select Army 1"
                                 />}
                                 onChange = {(event, value) => setPlayer1Army(value)}
                             />
@@ -73,7 +73,7 @@ function MainPage () {
                             id="army-player-2"
                             options={useArmies()}
                             sx={{ width: 300 }}
-                            renderInput={(params) => <SelectArmyStyledTextField {...params} label="Select Army"/>}
+                            renderInput={(params) => <SelectArmyStyledTextField {...params} label="Select Army 2"/>}
                             onChange = {(event, value) => setPlayer2Army(value)}
                         />
                     </Grid>

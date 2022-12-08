@@ -20,8 +20,7 @@ describe ("Testing Main Page", () => {
         )
         expect(screen.getByRole('textbox', {name: 'Player 1'})).toHaveValue('');
         expect(screen.getByRole('textbox', {name: 'Player 2'})).toHaveValue('');
-        expect(screen.getByRole('combobox', {name: 'Army1'})).toHaveValue('');
-        expect(screen.getByRole('combobox', {name: 'Army2'})).toHaveValue('');
+        expect(screen.getByRole('combobox', {name: 'Select Army 1'})).toHaveValue('');
     })
 
     it ("Selected Player in textbox", () => {
@@ -47,10 +46,10 @@ describe ("Testing Main Page", () => {
             </Provider>
         )
 
-        userEvent.type(screen.getByRole('combobox', {  name: /army1/i}), 'Harlequins');
+        userEvent.type(screen.getByRole('combobox', {name: 'Select Army 1'}), 'Harlequins');
         //WHY IT IS NOT WORKING?! userEvent.type(screen.getByRole('combobox', {name: 'Army2'}), 'Imperial Knights');
 
-        expect(screen.getByRole('combobox', {name: 'Army1'})).toHaveValue('Harlequins');
+        expect(screen.getByRole('combobox', {name: 'Select Army 1'})).toHaveValue('Harlequins');
         //expect(screen.getByRole('combobox', {name: 'Army2'})).toHaveValue('Imperial Knights');
     })
 })
