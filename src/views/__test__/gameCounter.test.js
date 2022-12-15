@@ -53,14 +53,14 @@ describe ("Testing Main Page", () => {
                 <GameCounter></GameCounter>
             </Provider>
         )
-        const button = screen.getByTestId('button-increase-Kuba-Primary Score')
+        const button = screen.getByTestId('button-reduce-undefined-Behind enemy Lines')
         let i = 0;
         while (i <7){
             userEvent.click(button)
             i++;
         }
          //Why now multiple clicks are not visible?
-        expect(screen.getByRole('heading', {  name: /11\-9/i})).toBeDefined();
+        expect(screen.getByRole('heading', {  name: /10\-10/i})).toBeDefined();
     })
 
 

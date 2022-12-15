@@ -100,7 +100,7 @@ function GameCounter () {
                         playerScoreDecrese={handleDecreseScorePlayer2}
                         playerScoreIncrease={handleIncreaseScorePlayer2}
                         >
-                    </Counter>      
+                </Counter>      
                 </Grid>
             </Grid>
             <Grid spacing={2} container direction="column" justifyContent="space-around" alignItems="center"
