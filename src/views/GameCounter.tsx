@@ -60,7 +60,6 @@ function GameCounter () {
                 setSecondPlayerInforMission([...secondPlayerInfoMission])
             }
         }
-        console.log(usePlayerFilteredMissions)
     }
 
     return <Container maxWidth="xl">
@@ -70,7 +69,7 @@ function GameCounter () {
                     <Card id="score-player-1">Score: {scorePlayer1}</Card>
                 </Grid>
                 <Grid item>
-                    <h2 id="player-1-name">{usePlayer("player2")}</h2>
+                    <h2 id="player-2-name">{usePlayer("player2")}</h2>
                     <Card id="score-player-2">Score: {scorePlayer2}</Card>
                 </Grid>
             </Grid>
@@ -101,7 +100,7 @@ function GameCounter () {
                         playerScoreDecrese={handleDecreseScorePlayer2}
                         playerScoreIncrease={handleIncreaseScorePlayer2}
                         >
-                    </Counter>      
+                </Counter>      
                 </Grid>
             </Grid>
             <Grid spacing={2} container direction="column" justifyContent="space-around" alignItems="center"
@@ -115,7 +114,7 @@ function GameCounter () {
                              <Grid spacing={1} container direction="row" justifyContent="space-around" alignItems="center">
                                 <Grid item>
                                     <IconButton onClick = {() => clickHander(index, 'player1') }>
-                                        <HelpIcon></HelpIcon>
+                                        <HelpIcon sx={{color: '#fff'}}></HelpIcon>
                                     </IconButton>
                                 </Grid>
                                 <Grid item>
@@ -145,7 +144,7 @@ function GameCounter () {
                              <Grid spacing={1} container direction="row" justifyContent="space-around" alignItems="center">
                                 <Grid item>
                                     <IconButton onClick = {() => clickHander(index, 'player2') }>
-                                        <HelpIcon></HelpIcon>
+                                        <HelpIcon sx={{color: '#fff'}}></HelpIcon>
                                     </IconButton>
                                 </Grid>
                                 <Grid item>

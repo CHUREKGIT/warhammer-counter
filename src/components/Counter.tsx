@@ -5,10 +5,24 @@ import Badge from '@mui/material/Badge';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import { useState } from 'react';
+import { styled } from '@mui/material/styles';
+
 
 function Counter (props:any) {
 
     const [count, setCount] = useState(0);
+
+    const StyledButtonCounter = styled(Button)(({ theme }) => ({
+        backgroundColor: '#fff',
+        '&:hover': {
+          backgroundColor: '#8D8DDA',
+        },
+    }));
+    const StyledBadge = styled(Badge)(({ theme }) => ({
+        '.MuiBadge-badge': {
+          backgroundColor: '#8D8DDA',
+        },
+    }));
 
     return <div>
              <Box 
@@ -24,14 +38,14 @@ function Counter (props:any) {
                     },
                         }}/>
                     <div>
-                    <Badge color="secondary" badgeContent={count} id={`badge-counter-${props.player}-${props.mission ? props.mission :'Primary Score'}`}>
-                        {props.player ? props.player : ''} {props.mission ? props.mission :'Primary Score'}
-                    </Badge>
+                    <StyledBadge color="secondary" badgeContent={count} id={`badge-counter-${props.player}-${props.mission ? props.mission :'Primary Score'}`} data-testid={`badge-counter-${props.player}-${props.mission ? props.mission :'Primary Score'}`}>
+                        <p>{props.player ? props.player : ''} {props.mission ? props.mission :'Primary Score'}</p>
+                    </StyledBadge>
                         <ButtonGroup
                             sx={{
                                 marginLeft: 2
                             }}>
-                            <Button
+                            <StyledButtonCounter
                                 id={`button-reduce-${props.player}-${props.mission ? props.mission :'Primary Score'}`}
                                 data-testid={`button-reduce-${props.player}-${props.mission ? props.mission :'Primary Score'}`}
                                 aria-label="reduce"
@@ -40,8 +54,8 @@ function Counter (props:any) {
                                 props.playerScoreDecrese();
                                 }}>
                                 <RemoveIcon fontSize="small" />
-                            </Button>
-                            <Button
+                            </StyledButtonCounter>
+                            <StyledButtonCounter
                                 id={`button-increase-${props.player}-${props.mission ? props.mission :'Primary Score'}`}
                                 data-testid={`button-increase-${props.player}-${props.mission ? props.mission :'Primary Score'}`}
                                 aria-label="increase"
@@ -51,7 +65,7 @@ function Counter (props:any) {
                                 }}
                             >
                                 <AddIcon fontSize="small" />
-                            </Button>
+                            </StyledButtonCounter>
                             </ButtonGroup>
                         </div>
                     </div>
