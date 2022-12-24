@@ -1,5 +1,5 @@
 import React , { useRef, useState } from 'react'
-import { Alert, TextField, FormControl } from '@mui/material'
+import { Alert, TextField, FormControl, Typography, Card, CardContent, Link } from '@mui/material'
 import { useAuth } from '../context/AuthContext'
 import { Box } from '@mui/system'
 import { StyledButton } from './StyledComponents'
@@ -37,39 +37,45 @@ export default function SignUp() {
     <Box
       component="form"
       sx={{
-        '& .MuiTextField-root': { m: 1, width: '25ch' },
+        '& .MuiTextField-root': {mt:3, width: '25ch' },
       }}
       display="flex" 
       alignItems="center"
       justifyContent="center"
       >
-        <FormControl sx={{ width: '25ch' }}>
-       {error &&  <Alert severity="error">{error}</Alert>}
-          <TextField 
-            id="outlined-basic" 
-            label="Email" 
-            variant="outlined" 
-            inputRef={emailRef} />
-          <TextField 
-            id="outlined-basic" 
-            label="Password" 
-            variant="outlined" 
-            inputRef={passwordRef} />
-          <TextField 
-            id="outlined-basic"
-            label="Confrim Password" 
-            inputRef={passwordConfirmationRef} 
-            variant="outlined" />
-          <Box
-          display="flex" 
-          alignItems="center"
-          justifyContent="center"
-          >
-          <StyledButton type="submit" disabled={loading} variant="contained" onClick={handleSubmit}>Sign Up</StyledButton>
-          </Box>
-        </FormControl>
+        <Card variant="outlined">
+            <CardContent>
+            <Typography sx={{ fontSize: 22, textAlign: 'center' }} color="text.secondary" gutterBottom>Sign Up!</Typography>
+              <FormControl sx={{ width: '25ch' }}>
+            {error &&  <Alert severity="error">{error}</Alert>}
+                <TextField 
+                  id="outlined-basic" 
+                  label="Email" 
+                  variant="outlined" 
+                  inputRef={emailRef} />
+                <TextField 
+                  id="outlined-basic" 
+                  label="Password" 
+                  variant="outlined" 
+                  inputRef={passwordRef} />
+                <TextField 
+                  id="outlined-basic"
+                  label="Confrim Password" 
+                  inputRef={passwordConfirmationRef} 
+                  variant="outlined" />
+                <Box
+                display="flex" 
+                alignItems="center"
+                justifyContent="center"
+                >
+                <StyledButton sx={{mt: 3}} type="submit" disabled={loading} variant="contained" onClick={handleSubmit}>Sign Up</StyledButton>
+                </Box>
+              </FormControl>
+              <Typography sx={{ mt: 2, fontSize: 14, textAlign: 'center' }} color="text.secondary" gutterBottom>
+                        <Link href="/login">Back to login in</Link>
+                </Typography>
+          </CardContent>
+        </Card>
       </Box>
-        
-
   )
 }

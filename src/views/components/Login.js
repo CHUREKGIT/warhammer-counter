@@ -66,6 +66,9 @@ export default function Login() {
                 <Typography sx={{ mt: 2, fontSize: 14, textAlign: 'center' }} color="text.secondary" gutterBottom>
                         <Link href="/forgot-password">Forgot Password?</Link>
                 </Typography>
+                <Typography sx={{ mt: 2, fontSize: 14, textAlign: 'center' }} color="text.secondary" gutterBottom>
+                        <Link href="/signup">Create Account</Link>
+                </Typography>
                 </FormControl>
             </CardContent>
         </Card>
