@@ -4,9 +4,13 @@ import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { StyledButton } from './components/StyledComponents'
+import { StyledButton } from './components/StyledComponents';
+import { useAuth } from './context/AuthContext';
 
 export default function Dashboard() {
+
+  const { currentUser } = useAuth();
+
   return (
     <div>
     <Box
@@ -15,6 +19,7 @@ export default function Dashboard() {
       justifyContent="center"
       >
       <StyledButton variant='contained' href={`${process.env.PUBLIC_URL}/`} >Start New Game</StyledButton>
+      {currentUser.email}
     </Box>
     <h2>Your previous games</h2>
       <Accordion>
