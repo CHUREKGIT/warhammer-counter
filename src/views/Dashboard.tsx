@@ -7,9 +7,10 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { StyledButton } from './components/StyledComponents';
 import { useAuth } from './context/AuthContext';
 import { db } from '../firebase';
-import { onValue, ref } from 'firebase/database';
+import { onValue, ref, query, orderByChild, DataSnapshot } from 'firebase/database';
 import { Card, CardContent, Typography } from '@mui/material';
 import Grid from '@mui/material/Grid';
+import { useDispatch } from 'react-redux';
 
 export default function Dashboard() {
 
@@ -47,6 +48,13 @@ export default function Dashboard() {
     gameStats: GameStats
   }
 
+  const dispatch = useDispatch();
+
+  const handleStartGame = () => {
+    localStorage.clear();
+    dispatch({ type: 'RESET' });
+  }
+
   const { currentUser } = useAuth();
   const [playerGames, setPlayerGames] = useState<Games[] | []>([])
   const shouldGetData = useRef(true);
@@ -74,11 +82,11 @@ export default function Dashboard() {
       alignItems="center"
       justifyContent="center"
       >
-      <StyledButton variant='contained' href={`${process.env.PUBLIC_URL}/`} >Start New Game</StyledButton>
+      <StyledButton onClick={handleStartGame} variant='contained' href={`${process.env.PUBLIC_URL}/`} >Start New Game</StyledButton>
     </Box>
     <h2>Your Email: {currentUser.email}</h2>
     <h3>Your previous games</h3>
-    {playerGames.map(game => {
+    {playerGames.reverse().map(game => {
       return (
         <Accordion>
         <AccordionSummary

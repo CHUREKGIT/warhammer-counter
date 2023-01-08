@@ -42,6 +42,7 @@ function GameCounter () {
         false,
         false
     ])
+    const [showButtonDashboard, setButtonDashboard] = useState(false);
     const { currentUser } = useAuth();
     const player1 = usePlayer('player1');
     const player2 = usePlayer('player2');
@@ -127,6 +128,7 @@ function GameCounter () {
             ...games
         })
         setShowAlert(true);
+        setButtonDashboard(true);
     }
 
     return <Container maxWidth="xl">
@@ -249,6 +251,10 @@ function GameCounter () {
                 <Grid item>
                         <StyledButton variant="contained" onClick={handleWriteToDataBase} >Save Game in Account</StyledButton>
                 </Grid>
+                {showButtonDashboard && 
+                <Grid item>
+                    <StyledButton variant="contained" href={`${process.env.PUBLIC_URL}/dashboard`}>Back to Dashboard</StyledButton>
+                </Grid>}
             </Grid>
         </Container>
 }
