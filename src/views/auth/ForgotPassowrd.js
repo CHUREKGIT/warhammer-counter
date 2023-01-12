@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react'
 import { Alert, TextField, FormControl, Typography, Link } from '@mui/material'
 import { useAuth } from '../context/AuthContext'
 import { Box } from '@mui/system'
-import { StyledButton } from './StyledComponents'
+import { StyledButton } from '../components/StyledComponents'
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 

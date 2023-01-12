@@ -1,14 +1,14 @@
 import * as React from 'react';
-import MainPage from './views/mainPage';
+import MainPage from './views/MainPage';
 import MissionsPage from './views/Missions';
 import GameCounter from './views/GameCounter'
 import { Routes, Route } from 'react-router-dom';
-import SignUp from './views/components/SignUp';
+import SignUp from './views/auth/SignUp';
 import { AuthProvider } from './views/context/AuthContext';
-import Login from './views/components/Login';
+import Login from './views/auth/Login';
 import Dashboard from './views/Dashboard';
 import PrivateRoute from './views/PrivateRoute';
-import ForgotPassowrd from './views/components/ForgotPassowrd';
+import ForgotPassowrd from './views/auth/ForgotPassowrd';
 
 function App() {
   return (

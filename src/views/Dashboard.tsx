@@ -7,7 +7,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { StyledButton } from './components/StyledComponents';
 import { useAuth } from './context/AuthContext';
 import { db } from '../firebase';
-import { onValue, ref, query, orderByChild, DataSnapshot } from 'firebase/database';
+import { onValue, ref } from 'firebase/database';
 import { Card, CardContent, Typography } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import { useDispatch } from 'react-redux';
