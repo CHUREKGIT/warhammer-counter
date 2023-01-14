@@ -7,10 +7,12 @@ import { useDispatch } from 'react-redux';
 import { useArmies } from '../store/selectors';
 import { ThemeProvider } from '@mui/material/styles';
 import { theme, StartButton, SelectArmyStyledTextField } from './components/StyledComponents';
+import { useAuth } from './context/AuthContext'
 
 function MainPage () {
 
     const title = "Warhammer 40k Counter";
+    const { currentUser } = useAuth();
 
     const dispatch = useDispatch();
 
@@ -81,6 +83,8 @@ function MainPage () {
                     <Grid item sx={{mt: 5}} justifyContent="center" alignItems="center">    
                         <StartButton variant="contained" href={`${process.env.PUBLIC_URL}/missions`}>SELECT MISSIONS</StartButton>
                     </Grid>
+                    {!currentUser && <Grid item sx={{mt: 2}} justifyContent="center" alignItems="center"><StartButton variant="contained" href={`${process.env.PUBLIC_URL}/login`}>LOGIN</StartButton></Grid>}
+                    {!currentUser && <Grid item sx={{mt: 2}} justifyContent="center" alignItems="center"><StartButton variant="contained" href={`${process.env.PUBLIC_URL}/signup`}>REGISTER</StartButton></Grid>}
                 </Grid>
             </Container>
 }

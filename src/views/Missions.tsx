@@ -13,8 +13,6 @@ import { usePlayer, useArmyPlayer } from '../store/selectors';
 import { MissionDetails } from './components/MissionDetails';
 import { MissionSelectStyledTextField, StyledButton } from './components/StyledComponents'
 
-
-
 function MissionsPage () {
 
     const [renderButtonPlayer1, setRenderButtonPlayer1] = useState([

@@ -249,7 +249,7 @@ function GameCounter () {
                 })}
                 {showAlert &&  <Grid item><Alert severity="success">Success! Game was saved into your account</Alert></Grid>}
                 <Grid item>
-                        <StyledButton variant="contained" onClick={handleWriteToDataBase} >Save Game in Account</StyledButton>
+                    {currentUser && <StyledButton variant="contained" onClick={handleWriteToDataBase}>Save Game in Account</StyledButton>}
                 </Grid>
                 {showButtonDashboard && 
                 <Grid item>
