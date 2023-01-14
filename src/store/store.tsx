@@ -61,6 +61,8 @@ const reducer = (state : any, action: any) => {
                     'placeholder',
                     ...state.player2SelectedMissions.slice(action.pos+1)]
                 }
+        case 'RESET': 
+            return { ...initialState }
             }
         return state;
         };

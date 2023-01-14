@@ -68,7 +68,7 @@ export const MissionSelectStyledTextField = styled(TextField)(({ theme }) => ({
     }
   }));
 
-export const StyledMissionDetailsButton = styled(Button)(({ theme }) => ({
+export const StyledButton = styled(Button)(({ theme }) => ({
     color: '#fff',
     backgroundColor: '#8D8DDA',
     borderRadius: 63,

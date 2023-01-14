@@ -4,13 +4,10 @@ import Button from '@mui/material/Button';
 import Badge from '@mui/material/Badge';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
-import { useState } from 'react';
 import { styled } from '@mui/material/styles';
 
 
 function Counter (props:any) {
-
-    const [count, setCount] = useState(0);
 
     const StyledButtonCounter = styled(Button)(({ theme }) => ({
         backgroundColor: '#fff',
@@ -38,7 +35,7 @@ function Counter (props:any) {
                     },
                         }}/>
                     <div>
-                    <StyledBadge color="secondary" badgeContent={count} id={`badge-counter-${props.player}-${props.mission ? props.mission :'Primary Score'}`} data-testid={`badge-counter-${props.player}-${props.mission ? props.mission :'Primary Score'}`}>
+                    <StyledBadge color="secondary" badgeContent={props.count} id={`badge-counter-${props.player}-${props.mission ? props.mission :'Primary Score'}`} data-testid={`badge-counter-${props.player}-${props.mission ? props.mission :'Primary Score'}`}>
                         <p>{props.player ? props.player : ''} {props.mission ? props.mission :'Primary Score'}</p>
                     </StyledBadge>
                         <ButtonGroup
@@ -50,7 +47,7 @@ function Counter (props:any) {
                                 data-testid={`button-reduce-${props.player}-${props.mission ? props.mission :'Primary Score'}`}
                                 aria-label="reduce"
                                 onClick={() => {
-                                setCount(Math.max(count - 1, 0));
+                                props.setCount(Math.max(props.count - 1, 0));
                                 props.playerScoreDecrese();
                                 }}>
                                 <RemoveIcon fontSize="small" />
@@ -60,7 +57,7 @@ function Counter (props:any) {
                                 data-testid={`button-increase-${props.player}-${props.mission ? props.mission :'Primary Score'}`}
                                 aria-label="increase"
                                 onClick={() => {
-                                setCount(count + 1);
+                                props.setCount(props.count + 1);
                                 props.playerScoreIncrease();
                                 }}
                             >

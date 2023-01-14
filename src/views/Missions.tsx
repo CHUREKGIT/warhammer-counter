@@ -11,9 +11,7 @@ import { shadowOperationOrganizer } from './utils/shadowOperationOrganizer';
 import store from '../store/store';
 import { usePlayer, useArmyPlayer } from '../store/selectors';
 import { MissionDetails } from './components/MissionDetails';
-import { MissionSelectStyledTextField, StyledMissionDetailsButton } from './components/StyledComponents'
-
-
+import { MissionSelectStyledTextField, StyledButton } from './components/StyledComponents'
 
 function MissionsPage () {
 
@@ -132,7 +130,7 @@ function MissionsPage () {
     
     const ButtonMissionDetails = (props: ButtonProps) => {
         return (
-            <Grid item><StyledMissionDetailsButton variant="contained" onClick={() => onClickButtonHandler(props.missionPosition, props.player)}>Mission Details</StyledMissionDetailsButton></Grid> 
+            <Grid item><StyledButton variant="contained" onClick={() => onClickButtonHandler(props.missionPosition, props.player)}>Mission Details</StyledButton></Grid> 
         )
     }
 
@@ -277,7 +275,7 @@ function MissionsPage () {
                     {renderButtonPlayer2[4] ? <ButtonMissionDetails missionPosition={4} player={'player2'}></ButtonMissionDetails> : '' }
                     {renderMissionDetailsPlayer2[4] ? <MissionDetails position={4} player={'player2SelectedMissions'}></MissionDetails> : '' } 
                     <Grid item>
-                        <StyledMissionDetailsButton variant="contained" href={`${process.env.PUBLIC_URL}/game`} >START GAME!</StyledMissionDetailsButton>
+                        <StyledButton variant="contained" href={`${process.env.PUBLIC_URL}/game`} >START GAME!</StyledButton>
                     </Grid>
                 </Grid>
             </Container>

@@ -4,7 +4,7 @@ Application to track game in Warhammer 40k. Select your Army, select your missio
 
 # You can test it here:
 
-[Warhammer-counter](https://warhammer-counter.herokuapp.com/)
+[Warhammer-counter](https://warhammer40k-counter.web.app/)
 
 ## Feel free to give me a feedback:
 
