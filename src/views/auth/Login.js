@@ -1,11 +1,13 @@
 import React, { useRef, useState } from 'react'
 import { Alert, TextField, FormControl, Typography, Link } from '@mui/material'
+import Avatar from '@mui/material/Avatar';
 import { useAuth } from '../context/AuthContext'
 import { Box } from '@mui/system'
 import { StyledButton } from '../components/StyledComponents'
 import { useNavigate } from 'react-router-dom';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
+import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 
 
 export default function Login() {
@@ -43,7 +45,16 @@ export default function Login() {
       >
         <Card variant="outlined">
             <CardContent>
-                <Typography sx={{ fontSize: 22, textAlign: 'center' }} color="text.secondary" gutterBottom>Log In</Typography>
+                <Box sx={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                }}>
+                  <Avatar sx={{ m: 1, bgcolor: '#8D8DDA', alignItems: 'center' }}>
+                    <LockOutlinedIcon />
+                  </Avatar>
+                </Box>
+                <Typography sx={{ fontSize: 22, textAlign: 'center' }} color="text.secondary" gutterBottom>Login</Typography>
                 <FormControl sx={{ width: '25ch' }}>
                     {error &&  <Alert severity="error">{error}</Alert>}
                     <TextField 
@@ -55,14 +66,15 @@ export default function Login() {
                         id="outlined-basic" 
                         label="Password" 
                         variant="outlined" 
+                        type="password"
                         inputRef={passwordRef} />
                     <Box
                     display="flex" 
                     alignItems="center"
                     justifyContent="center"
                     >
-                <StyledButton sx={{mt: 3}} type="submit" disabled={loading} variant="contained" onClick={handleSubmit}>Login</StyledButton>
-                </Box>
+                      <StyledButton sx={{mt: 3}} type="submit" disabled={loading} variant="contained" onClick={handleSubmit}>Login</StyledButton>
+                    </Box>
                 <Typography sx={{ mt: 2, fontSize: 14, textAlign: 'center' }} color="text.secondary" gutterBottom>
                         <Link href="/forgot-password">Forgot Password?</Link>
                 </Typography>

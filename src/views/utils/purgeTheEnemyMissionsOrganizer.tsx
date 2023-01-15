@@ -6,14 +6,6 @@ export function purgeTheEnemyMissionsOrganizer (playerArmySelected: string|strin
     purgeTheEnemyWithArmy = [...missions.main.purgeTheEnemy]
     
     switch (playerArmySelected) {
-        case 'Adepta Sororitas':
-            if (!missions.main.purgeTheEnemy.includes(missions.sororitas.purgeTheEnemy)){
-                if (missions.sororitas.purgeTheEnemy){
-                    purgeTheEnemyWithArmy.push(missions.sororitas.purgeTheEnemy)
-                    return purgeTheEnemyWithArmy;
-                }
-            }
-            break;
         case 'Adeptus Custodes':
             if (!missions.main.purgeTheEnemy.includes(missions.custodes.purgeTheEnemy)){
                 if (missions.custodes.purgeTheEnemy){
@@ -62,22 +54,6 @@ export function purgeTheEnemyMissionsOrganizer (playerArmySelected: string|strin
                 }
             }
             break;
-        case 'Imperial Knights':
-            if (!purgeTheEnemyWithArmy.includes(missions.ik.purgeTheEnemy)){
-                if (missions.ik.purgeTheEnemy){
-                    purgeTheEnemyWithArmy.push(missions.ik.purgeTheEnemy)
-                    return purgeTheEnemyWithArmy;
-                }
-            }
-            break;
-        case 'Necrons':
-            if (!missions.main.purgeTheEnemy.includes(missions.necron.purgeTheEnemy)){
-                if (missions.necron.purgeTheEnemy){
-                    purgeTheEnemyWithArmy.push(missions.necron.purgeTheEnemy)
-                    return purgeTheEnemyWithArmy;
-                }
-            }
-            break;
         case 'Orks': 
             if (!missions.main.purgeTheEnemy.includes(missions.ork.purgeTheEnemy)){
                 if (missions.ork.purgeTheEnemy){
@@ -94,18 +70,18 @@ export function purgeTheEnemyMissionsOrganizer (playerArmySelected: string|strin
                 }
             }
             break;
-        case 'SM: Blood Angels':
-            if (!missions.main.purgeTheEnemy.includes(missions.angles.purgeTheEnemy)){
-                if (missions.angles.purgeTheEnemy){
-                    purgeTheEnemyWithArmy.push(missions.angles.purgeTheEnemy)
+        case 'Drukhari (Dark Eldar)':
+            if (!missions.main.purgeTheEnemy.includes(missions.de.purgeTheEnemy)){
+                if (missions.de.purgeTheEnemy){
+                    purgeTheEnemyWithArmy.push(missions.de.purgeTheEnemy)
                     return purgeTheEnemyWithArmy;
                 }
             }
             break;
-        case 'Drukhari (Dark Eldar)':
-            if (missions.de.purgeTheEnemy.every(value => !missions.main.purgeTheEnemy.includes(value))){
-                if (missions.de.purgeTheEnemy){
-                    purgeTheEnemyWithArmy.push(...missions.de.purgeTheEnemy)
+        case 'Genestealer Cults':
+            if (!missions.main.purgeTheEnemy.includes(missions.gc.purgeTheEnemy)){
+                if (missions.gc.purgeTheEnemy){
+                    purgeTheEnemyWithArmy.push(missions.gc.purgeTheEnemy)
                     return purgeTheEnemyWithArmy;
                 }
             }

@@ -4,6 +4,8 @@ import { useAuth } from '../context/AuthContext'
 import { Box } from '@mui/system'
 import { StyledButton } from '../components/StyledComponents'
 import { useNavigate } from 'react-router-dom'
+import PersonAddIcon from '@mui/icons-material/PersonAdd';
+import Avatar from '@mui/material/Avatar';
 
 export default function SignUp() {
 
@@ -45,6 +47,15 @@ export default function SignUp() {
       >
         <Card variant="outlined">
             <CardContent>
+            <Box sx={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                }}>
+                  <Avatar sx={{ m: 1, bgcolor: '#8D8DDA', alignItems: 'center' }}>
+                    <PersonAddIcon />
+                  </Avatar>
+                </Box>
             <Typography sx={{ fontSize: 22, textAlign: 'center' }} color="text.secondary" gutterBottom>Sign Up!</Typography>
               <FormControl sx={{ width: '25ch' }}>
             {error &&  <Alert severity="error">{error}</Alert>}
@@ -56,11 +67,13 @@ export default function SignUp() {
                 <TextField 
                   id="outlined-basic" 
                   label="Password" 
-                  variant="outlined" 
+                  variant="outlined"
+                  type="password"
                   inputRef={passwordRef} />
                 <TextField 
                   id="outlined-basic"
-                  label="Confrim Password" 
+                  label="Confrim Password"
+                  type="password"
                   inputRef={passwordConfirmationRef} 
                   variant="outlined" />
                 <Box

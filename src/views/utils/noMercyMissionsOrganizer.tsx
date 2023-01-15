@@ -101,14 +101,6 @@ export function noMercyMissionsOrganizer (playerArmySelected: string|string[]): 
                 }
             }
             break;
-        case 'Heretic Astartes: Thousand Sons':
-            if (!missions.main.noMercy.includes(missions.ts.noMercy)){
-                if (missions.ts.noMercy){
-                    noMercyWithArmy.push(missions.ts.noMercy)
-                    return noMercyWithArmy;
-                }
-            }
-            break;
         case 'Imperial Knights':
             if (!missions.main.noMercy.includes(missions.ik.noMercy)){
                 if (missions.ik.noMercy){
@@ -125,14 +117,6 @@ export function noMercyMissionsOrganizer (playerArmySelected: string|string[]): 
                 }
             }
             break;
-        case 'Orks': 
-            if (!missions.main.noMercy.includes(missions.ork.noMercy)){
-                if (missions.ork.noMercy){
-                    noMercyWithArmy.push(missions.ork.noMercy)
-                    return noMercyWithArmy;
-                }
-            }
-            break;
         case 'Tyranids':
             if (!missions.main.noMercy.includes(missions.tyranids.noMercy)){
                 if (missions.tyranids.noMercy){
@@ -141,17 +125,22 @@ export function noMercyMissionsOrganizer (playerArmySelected: string|string[]): 
                 }
             }
             break;
-        case 'SM: Blood Angels':
-            if (missions.angles.noMercy.every(value => !missions.main.noMercy.includes(value))){
-                if (missions.angles.noMercy){
-                    noMercyWithArmy.push(...missions.angles.noMercy)
-                    if (missions.sm.noMercy){
-                        noMercyWithArmy.push(missions.sm.noMercy) 
-                    }
+        case 'SM: Iron Hands':
+            if (!missions.main.noMercy.includes(missions.ih.noMercy)){
+                if (missions.ih.noMercy){
+                    noMercyWithArmy.push(missions.ih.noMercy)
                     return noMercyWithArmy;
                 }
             }
             break;
+        case 'Vottan (Squats)':
+            if (!missions.main.noMercy.includes(missions.votann.noMercy)){
+                if (missions.votann.noMercy){
+                    noMercyWithArmy.push(missions.votann.noMercy)
+                    return noMercyWithArmy;
+                }
+            }
+            break;    
         }
     return noMercyWithArmy
 }
