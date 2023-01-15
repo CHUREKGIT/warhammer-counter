@@ -36,7 +36,7 @@ export const StartButton = styled(Button)<ButtonProps>(({ theme }) => ({
 
 export const SelectArmyStyledTextField = styled(TextField)(({ theme }) => ({
     input: {
-        color: 'rgba(255, 255, 255, 0.4)'
+      color: '#09E9D2'
     },
     "& label, & label.Mui-focused": {
     color: 'rgba(255, 255, 255, 0.4)',

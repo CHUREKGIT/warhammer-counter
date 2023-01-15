@@ -34,11 +34,6 @@ const missions = {
             battlefield: "IK: YIELD NO GROUND",
             shadowOperation: "IK: RENEW THE OATHS"
         },
-        cik: {
-            battlefield: "CIK: RUTHLESS TYRANNY",
-            noMercy: "CIK: NO MERCY, NO RESPIRTE",
-            shadowOperation: "CIK: STORM OF DARKNESS"
-        },
         sm: {
             purgeTheEnemy: "SM: CODEX WARFARE",
             noMercy: "SM: OATHS OF MOMENT",

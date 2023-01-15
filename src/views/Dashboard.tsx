@@ -84,7 +84,7 @@ export default function Dashboard() {
       >
       <StyledButton onClick={handleStartGame} variant='contained' href={`${process.env.PUBLIC_URL}/`} >Start New Game</StyledButton>
     </Box>
-    <h2>Your Email: {currentUser.email}</h2>
+    <h2>Your Email:</h2> <Typography variant="subtitle1" sx={{textAlign: 'center', color: '#fff'}}>{currentUser.email}</Typography>
     <h3>Your previous games</h3>
     {playerGames.reverse().map(game => {
       return (

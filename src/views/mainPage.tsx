@@ -46,7 +46,7 @@ function MainPage () {
                     </Grid>
                     <Grid item sx={{mt: 5}} justifyContent="center" alignItems="center">
                         <ThemeProvider theme={theme}>
-                            <TextField id="player-1" label="Player 1" variant="outlined" onChange={setPlayer1} color="neutral" focused />
+                            <TextField sx={{ input: { color: 'white' } }} id="player-1" label="Player 1" variant="outlined" onChange={setPlayer1} color="neutral" focused />
                         </ThemeProvider>
                     </Grid>
 
@@ -66,7 +66,7 @@ function MainPage () {
                     </Grid>
                     <Grid item sx={{mt: 1}} justifyContent="center" alignItems="center">    
                         <ThemeProvider theme={theme}>
-                            <TextField id="player-2" label="Player 2" variant="outlined" onChange={setPlayer2} 
+                            <TextField sx={{ input: { color: 'white' } }} id="player-2" label="Player 2" variant="outlined" onChange={setPlayer2} 
                             color="neutral" focused />
                         </ThemeProvider>
                     </Grid>
