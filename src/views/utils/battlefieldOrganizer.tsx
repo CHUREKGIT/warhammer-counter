@@ -37,14 +37,6 @@ export function battlefieldSupremacyOrganizer (playerArmySelected: string|string
                 }
             }
             break;
-        case 'Aeldari (Eldar)': 
-            if (!missions.main.battlefield.includes(missions.elf.battlefield)){
-                if (missions.elf.battlefield){
-                    battlefieldSupremacyWithArmy.push(missions.elf.battlefield)
-                    return battlefieldSupremacyWithArmy;
-                }
-            }
-            break;
         case 'Astra Militarum (Imperial Guard)': 
             if (!missions.main.battlefield.includes(missions.militarum.battlefield)){
                 if (missions.militarum.battlefield){
@@ -105,6 +97,30 @@ export function battlefieldSupremacyOrganizer (playerArmySelected: string|string
             if (!missions.main.battlefield.includes(missions.ork.battlefield)){
                 if (missions.ork.battlefield){
                     battlefieldSupremacyWithArmy.push(missions.ork.battlefield)
+                    return battlefieldSupremacyWithArmy;
+                }
+            }
+            break;
+        case 'SM: Dark Angels':
+            if (!missions.main.battlefield.includes(missions.da.battlefield)){
+                if (missions.da.battlefield){
+                    battlefieldSupremacyWithArmy.push(missions.da.battlefield)
+                    return battlefieldSupremacyWithArmy;
+                }
+            }
+            break;
+        case 'Vottan (Squats)':
+            if (!missions.main.battlefield.includes(missions.votann.battlefield)){
+                if (missions.votann.battlefield){
+                    battlefieldSupremacyWithArmy.push(missions.votann.battlefield)
+                    return battlefieldSupremacyWithArmy;
+                }
+            }
+            break;
+        case 'Genestealer Cults':
+            if (!missions.main.battlefield.includes(missions.gc.battlefield)){
+                if (missions.gc.battlefield){
+                    battlefieldSupremacyWithArmy.push(missions.gc.battlefield)
                     return battlefieldSupremacyWithArmy;
                 }
             }

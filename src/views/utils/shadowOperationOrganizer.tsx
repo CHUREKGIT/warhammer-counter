@@ -29,14 +29,6 @@ export function shadowOperationOrganizer (playerArmySelected: string|string[]): 
                 }
             }
             break;
-        case 'Astra Militarum (Imperial Guard)': 
-            if (!missions.main.shadowOperation.includes(missions.militarum.shadowOperation)){
-                if (missions.militarum.shadowOperation){
-                    shadowOperationWithArmy.push(missions.militarum.shadowOperation)
-                    return shadowOperationWithArmy;
-                }
-            }
-            break;
         case 'Chaos Daemons': 
             if (!missions.main.shadowOperation.includes(missions.deamons.shadowOperation)){
                 if (missions.deamons.shadowOperation){
@@ -105,6 +97,22 @@ export function shadowOperationOrganizer (playerArmySelected: string|string[]): 
             if (!missions.main.shadowOperation.includes(missions.tyranids.shadowOperation)){
                 if (missions.tyranids.shadowOperation){
                     shadowOperationWithArmy.push(missions.tyranids.shadowOperation)
+                    return shadowOperationWithArmy;
+                }
+            }
+            break;
+        case 'Vottan (Squats)':
+            if (!missions.main.shadowOperation.includes(missions.votann.shadowOperation)){
+                if (missions.votann.shadowOperation){
+                    shadowOperationWithArmy.push(missions.votann.shadowOperation)
+                    return shadowOperationWithArmy;
+                }
+            }
+            break;
+        case 'Genestealer Cults':
+            if (!missions.main.shadowOperation.includes(missions.gc.shadowOperation)){
+                if (missions.gc.shadowOperation){
+                    shadowOperationWithArmy.push(missions.gc.shadowOperation)
                     return shadowOperationWithArmy;
                 }
             }

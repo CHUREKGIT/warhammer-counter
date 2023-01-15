@@ -1,6 +1,6 @@
 const initialState = {
     armies: [
-        "Adepta Sororitas", "Adeptus Custodes", "Adeptus Mechanicus", "Aeldari (Eldar)", "Astra Militarum (Imperial Guard)", "Chaos Daemons", "Chaos Knights", "Drukhari (Dark Eldar)", "Chaos Space Marines", "Death Guard", "Heretic Astartes: Thousand Sons", "Harlequins", "Imperial Knights", "Necrons", "Orks", "Tau", "Tyranids", "SM: Blood Angels"
+        "Adepta Sororitas", "Adeptus Custodes", "Adeptus Mechanicus", "Aeldari (Eldar)", "Astra Militarum (Imperial Guard)", "Chaos Daemons", "Chaos Knights", "Drukhari (Dark Eldar)", "Chaos Space Marines", "Death Guard", "Heretic Astartes: Thousand Sons", "Harlequins", "Imperial Knights", "Necrons", "Orks", "Tau", "Tyranids", "SM: Blood Angels", "SM: Dark Angels", "SM: Iron Hands", "Vottan (Squats)", "Genestealer Cults"
     ],
     player1: '',
     player1SelectedArmy: '',

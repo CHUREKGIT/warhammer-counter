@@ -1,5 +1,5 @@
 import * as React from 'react';
-import MainPage from './views/MainPage';
+import MainPage from './views/mainPage';
 import MissionsPage from './views/Missions';
 import GameCounter from './views/GameCounter'
 import { Routes, Route } from 'react-router-dom';

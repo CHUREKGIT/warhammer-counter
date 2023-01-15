@@ -7,7 +7,6 @@ const missions = {
             shadowOperation: ["Raise the Banners high", "Retreive Nephilm Data"]
         },
         sororitas: {
-            purgeTheEnemy: "AS: SLAY THE HERETIC",
             noMercy: "AS: A LEAP OF FAITH",
             battlefield: "AS: DEFEND THE SHRINE",
             shadowOperation: "AS: SHADOW OPERATIONS"
@@ -18,26 +17,27 @@ const missions = {
             battlefield: "AC: STAND VIGIL"
         },
         mechanicus: {
-            purgeTheEnemy: "AMechanicus: ACCRETION OF KNOWLEDGE",
-            noMercy: "AMechanicus: ERADICATION OF FLESH",
-            battlefield: ["AMechanicus: UNCHARTED SEQUENCING", "AMechanicus: HIDDEN ARCHEOVAULT"]
+            purgeTheEnemy: "AMech: ACCRETION OF KNOWLEDGE",
+            noMercy: "AMech: ERADICATION OF FLESH",
+            battlefield: "AMech: HIDDEN ARCHEOVAULT"
         },
         militarum: {
             purgeTheEnemy: "AM: BY LASGUN AND BAYONET",
             noMercy: "AM: INFLEXIBLE COMMAND",
             battlefield:"AM: BOOTS ON THE GROUND",
-            shadowOperation:"AM: SPECIAL ORDERS"
         },
         angles: {
-            purgeTheEnemy : "BA: BLADE OF SANGUINIUS",
-            noMercy: ["BA: FURY OF THE LOST", "BA: DEATH FROM ABOVE"],
             battlefield: "BA: RELENTLESS ASSAULT"
         },
         ik: {
-            purgeTheEnemy: "IK: DUEL OF HONOUR",
             noMercy: "IK: HONOUR OF THE HOUSE",
             battlefield: "IK: YIELD NO GROUND",
             shadowOperation: "IK: RENEW THE OATHS"
+        },
+        cik: {
+            battlefield: "CIK: RUTHLESS TYRANNY",
+            noMercy: "CIK: NO MERCY, NO RESPIRTE",
+            shadowOperation: "CIK: STORM OF DARKNESS"
         },
         sm: {
             purgeTheEnemy: "SM: CODEX WARFARE",
@@ -67,30 +67,26 @@ const missions = {
         },
         ts: {
             purgeTheEnemy: "TS: SORCEROUS PROWESS",
-            noMercy: "TS: WRATH OF MAGNUS",
             warpcraft: "TS: MUTATE LANDSCAPE",
             shadowOperation: "TS: BURN EMPIRES"
         },
         elf: {
             noMercy: "AE: WRATH OF KHAINE",
             warpcraft: "AE: SCRY FUTURES",
-            battlefield: "AE: THE HIDDEN PATH",
             shadowOperation: "AE: SCOUT THE ENEMY",
         },
         de: {
-            purgeTheEnemy: ["DE: TAKE THEM ALIVE!", "DE: BEASTS FOR THE ARENAS"],
+            purgeTheEnemy: "DE: TAKE THEM ALIVE!",
             noMercy: "DE: FEAR AND TERROR", 
             battlefield: "DE: HERD THE PREY"
         },
         necron: {
-            purgeTheEnemy: "NC: CODE OF COMBAT",
             noMercy: "NC: THE TREASURES OF AEONS",
             battlefield: "NC: PURGE THE VERMIN",
             shadowOperation: "NC: ANCIENT MACHINERIES"
         },
         ork: {
-            purgeTheEnemy: "O: DA BIGGEST AND DA BEST",
-            noMercy: "O: STOMP EM GOOD",
+            purgeTheEnemy: "O: STOMP EM GOOD",
             battlefield: "O: GREEN TIDE",
             shadowOperation:"O: GET DA GOOD BITZ"
         },
@@ -108,6 +104,22 @@ const missions = {
             purgeTheEnemy: "TYR: CRANIAL FEASTING",
             noMercy: "TYR: SYNAPTIC INSIGHT",
             shadowOperation: "TYR: SPORE NODES"
+        },
+        da :{
+            battlefield: "DA: STUBBORN DEFIANCE"
+        },
+        ih: {
+            noMercy: "IH: COLD FURY"
+        },
+        votann: {
+            noMercy: "SQUAT: THE ANCESTORS ARE WATCHING",
+            battlefield: "SQUAT: LAY CLAIM", 
+            shadowOperation: "SQUAT: PROSPECTS OF WEALTH"
+        },
+        gc: {
+            battlefield: "GC: BROODSWARM",
+            purgeTheEnemy: "GC: AMBUSH",
+            shadowOperation: "GC: SABOTAGE CRITICAL LOCATION"
         }
 };
 
