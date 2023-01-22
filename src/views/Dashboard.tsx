@@ -81,6 +81,7 @@ export default function Dashboard() {
       display="flex" 
       alignItems="center"
       justifyContent="center"
+      sx={{mt: 5}}
       >
       <StyledButton onClick={handleStartGame} variant='contained' href={`${process.env.PUBLIC_URL}/`} >Start New Game</StyledButton>
     </Box>

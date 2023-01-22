@@ -41,11 +41,11 @@ export function MissionDetails (props: MissionDetailsProps) {
             )
         case 'Warp Ritual':
             return (
-                <AlertMission details={'If you select this objective, keep a Ritual Points tally; add 1 to that tally each time a unit from your army completes the following psychic action during the battle: Warp Ritual (Psychic Action - Warp Charge 3): One PSYKER CHARACTER unit from your army can attempt to perform this psychic action in your Psychic phase if it is within 6" of the centre of the battlefield. At the end of the battle, score 3 victory points if your Ritual Points tally is 1, score 7 victory points if your tally is 2, or score 12 victory points if your tally is 3 or more.'}/>
+                <AlertMission details={'If you select this objective, keep a Ritual Points tally; add 1 to that tally each time a unit from your army completes the following psychic action during the battle: Warp Ritual (Psychic Action - Warp Charge 4): One PSYKER CHARACTER unit from your army can attempt to perform this psychic action in your Psychic phase if it is within 6" of the centre of the battlefield. At the end of the battle, score 3 victory points if your Ritual Points tally is 1, score 7 victory points if your tally is 2, or score 12 victory points if your tally is 3 or more.'}/>
             )
         case 'Behind enemy Lines':
             return (
-                <AlertMission details={'Score 2 victory points at the end of your turn if one unit from your army (excluding AIRCRAFT units) is wholly within your opponent’s deployment zone. Score 4 victory points at the end of your turn instead if two or more units from your army (excluding AIRCRAFT units) are wholly within your opponent’s deployment zone.'}/>
+                <AlertMission details={'Score 3 victory points at the end of your turn if one unit from your army (excluding AIRCRAFT units) is wholly within your opponent’s deployment zone. Score 4 victory points at the end of your turn instead if two or more units from your army (excluding AIRCRAFT units) are wholly within your opponent’s deployment zone.'}/>
             )
         case 'Engage On All Fronts':
             return (
@@ -55,7 +55,7 @@ export function MissionDetails (props: MissionDetailsProps) {
             return (
                 <AlertMission details={'Raise Banners (Action): One or more INFANTRY units from your army can start to perform this action at the end of your Movement phase. Each unit from your army that starts to perform this action must be within range of a different objective marker you control and that does not have one of your banners raised on it (see below). The action is completed at the end of your turn. If completed, that objective marker is said to have one of your army’s banners raised on it (the banner is ‘removed’ if your opponent controls the objective marker at the start of any Command phase). /// Score 1 victory point at the end of each of your Command phases, and 1 victory point at the end of the battle, for each objective marker on the battlefield that has one of your banners raised on it.'}/>
             )
-        case 'Retreive Nephilm Data':
+        case 'Retreive Battlefield Data':
             return (
                 <AlertMission details={'If you select this objective, keep a Retrieved Data tally. In addition, units from your army can attempt the following action: /// Retrieve Data (Action): One INFANTRY or BIKER unit from your army can start to perform this action at the end of your Movement phase if it is wholly within a table quarter that has not had a servo-skull retrieved by your army (see below) and it is more than 6" away from any other table quarter. This action is completed at the end of your turn provided the unit performing it is still within the same table quarter. If completed, roll one D6, subtracting 1 from the result if the unit that completed the action has the Troops Battlefield Role: if the result is less than or equal to the number of models currently in that unit, that table quarter is said to have had a servo-skull retrieved by your army and you add 1 to your Retrieved Data tally. /// At the end of the battle, score 4 victory points if your Retrieved Data tally is 2, score 8 victory points if your tally is 3, or score 12 victory points if your tally is 4.'}/>
             )

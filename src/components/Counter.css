@@ -1,0 +1,9 @@
+@media screen and (max-width: 580px) {
+    .longText {
+        font-size: 12px;
+    }
+
+    .normalText {
+        font-size: 15px;
+    }
+}

@@ -50,18 +50,18 @@ function GameCounter () {
     const player2Army = useArmyPlayer('player2SelectedArmy');
     const player1Missions = usePlayerFilteredMissions('player1SelectedMissions')
     const player2Missions = usePlayerFilteredMissions('player2SelectedMissions')
-
+   
     const handleIncreaseScorePlayer1 = () => {
-        setScorePlayer1(scorePlayer1 + 1)
+        return scorePlayer1 < 100 ? setScorePlayer1(scorePlayer1 + 1) : '';
     };
     const handleDecreseScorePlayer1 = () => {
-        setScorePlayer1((Math.max(scorePlayer1 - 1, 0)))
+        return scorePlayer1 > 10 ? setScorePlayer1((Math.max(scorePlayer1 - 1, 0))) : '';
     }
     const handleIncreaseScorePlayer2 = () => {
-        setScorePlayer2(scorePlayer2 + 1)
+        return scorePlayer2 < 100 ? setScorePlayer2(scorePlayer2 + 1) : '';
     };
     const handleDecreseScorePlayer2 = () => {
-        setScorePlayer2((Math.max(scorePlayer2 - 1, 0)))
+        return scorePlayer2 > 10 ? setScorePlayer2((Math.max(scorePlayer2 - 1, 0))) : ''; 
     }
     const clickHander = (index : number, player: string ) => {
         if (player === 'player1'){
@@ -187,7 +187,16 @@ function GameCounter () {
                              <Grid spacing={1} container direction="row" justifyContent="space-around" alignItems="center">
                                 <Grid item>
                                     <IconButton onClick = {() => clickHander(index, 'player1') }>
-                                        <HelpIcon sx={{color: '#fff'}}></HelpIcon>
+                                        <HelpIcon  classes='helpIcon' sx={{
+                                            color: '#fff',
+                                            width: {
+                                                xs: 15,
+                                                sm: 40,
+                                                md: 40,
+                                                lg: 40,
+                                                xl: 40
+                                            }
+                                                }}></HelpIcon>
                                     </IconButton>
                                 </Grid>
                                 <Grid item>
@@ -223,7 +232,16 @@ function GameCounter () {
                              <Grid spacing={1} container direction="row" justifyContent="space-around" alignItems="center">
                                 <Grid item>
                                     <IconButton onClick = {() => clickHander(index, 'player2') }>
-                                        <HelpIcon sx={{color: '#fff'}}></HelpIcon>
+                                        <HelpIcon  classes='helpIcon' sx={{
+                                            color: '#fff',
+                                            width: {
+                                                xs: 15,
+                                                sm: 40,
+                                                md: 40,
+                                                lg: 40,
+                                                xl: 40
+                                            }
+                                                }}></HelpIcon>
                                     </IconButton>
                                 </Grid>
                                 <Grid item>
@@ -248,11 +266,11 @@ function GameCounter () {
                     )
                 })}
                 {showAlert &&  <Grid item><Alert severity="success">Success! Game was saved into your account</Alert></Grid>}
-                <Grid item>
+                <Grid item sx={{mb: 5}}>
                     {currentUser && <StyledButton variant="contained" onClick={handleWriteToDataBase}>Save Game in Account</StyledButton>}
                 </Grid>
                 {showButtonDashboard && 
-                <Grid item>
+                <Grid item sx={{mb: 5}}>
                     <StyledButton variant="contained" href={`${process.env.PUBLIC_URL}/dashboard`}>Back to Dashboard</StyledButton>
                 </Grid>}
             </Grid>
