@@ -80,11 +80,11 @@ function MainPage () {
                             onChange = {(event, value) => setPlayer2Army(value)}
                         />
                     </Grid>
-                    <Grid item sx={{mt: 5}} justifyContent="center" alignItems="center">    
+                    <Grid item sx={{mt: 5, mb: 5}} justifyContent="center" alignItems="center">    
                         <StartButton variant="contained" href={`${process.env.PUBLIC_URL}/missions`}>SELECT MISSIONS</StartButton>
                     </Grid>
                     {!currentUser && <Grid item sx={{mt: 2}} justifyContent="center" alignItems="center"><StartButton variant="contained" href={`${process.env.PUBLIC_URL}/login`}>LOGIN</StartButton></Grid>}
-                    {!currentUser && <Grid item sx={{mt: 2}} justifyContent="center" alignItems="center"><StartButton variant="contained" href={`${process.env.PUBLIC_URL}/signup`}>REGISTER</StartButton></Grid>}
+                    {!currentUser && <Grid item sx={{mt: 2, mb: 3}} justifyContent="center" alignItems="center"><StartButton variant="contained" href={`${process.env.PUBLIC_URL}/signup`}>REGISTER</StartButton></Grid>}
                 </Grid>
             </Container>
 }

@@ -274,7 +274,7 @@ function MissionsPage () {
                     </Grid>
                     {renderButtonPlayer2[4] ? <ButtonMissionDetails missionPosition={4} player={'player2'}></ButtonMissionDetails> : '' }
                     {renderMissionDetailsPlayer2[4] ? <MissionDetails position={4} player={'player2SelectedMissions'}></MissionDetails> : '' } 
-                    <Grid item>
+                    <Grid item sx={{mb: 5}}>
                         <StyledButton variant="contained" href={`${process.env.PUBLIC_URL}/game`} >START GAME!</StyledButton>
                     </Grid>
                 </Grid>
